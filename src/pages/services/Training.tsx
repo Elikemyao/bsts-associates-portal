@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { BookOpen, ClipboardCheck, Shield, FileText, Contract, Handshake } from 'lucide-react';
+import { BookOpen, ClipboardCheck, Shield, FileText, Contact, Handshake } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
 import TestimonialCard from '@/components/TestimonialCard';
@@ -40,7 +39,7 @@ const TrainingService = () => {
         <ServiceFeature
           title="Business Skills"
           description="Development of essential business and management skills for professionals."
-          icon={<Contract className="h-10 w-10" />}
+          icon={<Contact className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=300"
         />
         <ServiceFeature

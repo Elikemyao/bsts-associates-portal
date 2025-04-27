@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { FileText, ClipboardCheck, Contract, Shield, Handshake, BookOpen } from 'lucide-react';
+import { FileText, ClipboardCheck, Contact, Shield, Handshake, BookOpen } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
 import TestimonialCard from '@/components/TestimonialCard';
@@ -28,7 +27,7 @@ const RecruitmentService = () => {
         <ServiceFeature
           title="Contract Staffing"
           description="Flexible staffing solutions for temporary and project-based requirements."
-          icon={<Contract className="h-10 w-10" />}
+          icon={<Contact className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=300"
         />
         <ServiceFeature

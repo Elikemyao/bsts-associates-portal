@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Handshake, Landmark, ClipboardPen, Shield, Contract, BookOpen } from 'lucide-react';
+import { Handshake, Landmark, ClipboardPen, Shield, Contact, BookOpen } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
 import TestimonialCard from '@/components/TestimonialCard';
@@ -40,7 +39,7 @@ const ConsultancyService = () => {
         <ServiceFeature
           title="Merger & Acquisition"
           description="Expert guidance through mergers, acquisitions, and business restructuring processes."
-          icon={<Contract className="h-10 w-10" />}
+          icon={<Contact className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=300"
         />
         <ServiceFeature

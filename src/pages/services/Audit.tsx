@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ClipboardCheck, Shield, FileText, Scale, Contract, ShieldLock } from 'lucide-react';
+import { ClipboardCheck, Shield, FileText, Scale, Contact, ShieldCheck } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
 import TestimonialCard from '@/components/TestimonialCard';
@@ -40,13 +39,13 @@ const AuditService = () => {
         <ServiceFeature
           title="Due Diligence"
           description="Thorough investigation and analysis for mergers, acquisitions, and major business decisions."
-          icon={<Contract className="h-10 w-10" />}
+          icon={<Contact className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=300"
         />
         <ServiceFeature
           title="Fraud Prevention"
           description="Advanced fraud detection and prevention strategies to protect your business assets."
-          icon={<ShieldLock className="h-10 w-10" />}
+          icon={<ShieldCheck className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=300"
         />
       </div>

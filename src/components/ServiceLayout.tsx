@@ -10,20 +10,27 @@ interface ServiceLayoutProps {
   subtitle?: string;
   children: React.ReactNode;
   className?: string;
+  headerImage?: string;
 }
 
 const ServiceLayout: React.FC<ServiceLayoutProps> = ({
   title,
   subtitle,
   children,
-  className
+  className,
+  headerImage
 }) => {
   return (
-    <div className={cn("min-h-screen", className)}>
+    <div className={cn("min-h-screen animate-fade-in", className)}>
       {/* Header Section */}
-      <section className="bg-bsts-navy text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+      <section className="bg-gradient-to-r from-bsts-navy to-bsts-burgundy text-white py-16 md:py-24 relative overflow-hidden">
+        {headerImage && (
+          <div className="absolute inset-0 opacity-20">
+            <img src={headerImage} alt="header background" className="w-full h-full object-cover" />
+          </div>
+        )}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-3xl animate-fade-in">
             <h1 className="hero-title mb-6">{title}</h1>
             {subtitle && (
               <p className="text-xl text-gray-200">{subtitle}</p>
@@ -41,17 +48,17 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
 
       {/* CTA Section */}
       <section className="bg-bsts-gray py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
           <SectionHeading
             title="Ready to Get Started?"
             subtitle="Contact us today to learn more about how we can help your business succeed."
             centered
           />
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="hover:scale-105 transition-transform">
               <Link to="/contact">Contact Us</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="hover:scale-105 transition-transform">
               <Link to="/contact">Schedule Consultation</Link>
             </Button>
           </div>

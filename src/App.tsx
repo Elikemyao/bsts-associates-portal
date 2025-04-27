@@ -20,6 +20,12 @@ import NotFound from "./pages/NotFound";
 // Service Pages
 import AccountancyService from "./pages/services/Accountancy";
 import TaxationPlanningService from "./pages/services/TaxationPlanning";
+import AuditService from "./pages/services/Audit";
+import SoftwareService from "./pages/services/Software";
+import ConsultancyService from "./pages/services/Consultancy";
+import LegalService from "./pages/services/Legal";
+import RecruitmentService from "./pages/services/Recruitment";
+import TrainingService from "./pages/services/Training";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +50,12 @@ const App = () => (
             {/* Service Routes */}
             <Route path="/services/accountancy" element={<AccountancyService />} />
             <Route path="/services/taxation" element={<TaxationPlanningService />} />
+            <Route path="/services/audit" element={<AuditService />} />
+            <Route path="/services/software" element={<SoftwareService />} />
+            <Route path="/services/consultancy" element={<ConsultancyService />} />
+            <Route path="/services/legal" element={<LegalService />} />
+            <Route path="/services/recruitment" element={<RecruitmentService />} />
+            <Route path="/services/training" element={<TrainingService />} />
             
             {/* 404 Route */}
             <Route path="*" element={<NotFound />} />

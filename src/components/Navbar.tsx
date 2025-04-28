@@ -18,7 +18,11 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className="text-bsts-navy text-xl font-display font-bold">BSTS & ASSOCIATES</span>
+              <img
+                src="/lovable-uploads/66e7bfb8-cbca-4da1-8857-6e685d8d2adc.png"
+                alt="BSTS & Associates Logo"
+                className="h-8 w-auto"
+              />
             </Link>
           </div>
 

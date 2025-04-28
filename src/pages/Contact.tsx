@@ -1,10 +1,32 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { useForm } from 'react-hook-form';
+import { Upload, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import TestimonialCard from '@/components/TestimonialCard';
 
 const Contact = () => {
+  const form = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      position: '',
+      cv: null,
+      coverLetter: '',
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    // Handle form submission
+  };
+
   return (
     <div>
       {/* Header Section */}
@@ -30,92 +52,128 @@ const Contact = () => {
                 subtitle="Fill out the form below and one of our experts will get back to you shortly."
               />
               
-              <form className="space-y-6 mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="first-name" className="block text-sm font-medium text-gray-700 mb-1">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      id="first-name"
-                      className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bsts-navy"
-                      required
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>First Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="John" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Last Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Doe" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
                   </div>
-                  <div>
-                    <label htmlFor="last-name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      id="last-name"
-                      className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bsts-navy"
-                      required
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bsts-navy"
-                    required
+
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="john.doe@example.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bsts-navy"
+
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone</FormLabel>
+                        <FormControl>
+                          <Input type="tel" placeholder="+233 (0) XX XXX XXXX" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
-                    Service You're Interested In
-                  </label>
-                  <select
-                    id="service"
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bsts-navy"
-                  >
-                    <option value="">Select a Service</option>
-                    <option value="accountancy">Accountancy</option>
-                    <option value="taxation">Taxation & Tax Planning</option>
-                    <option value="audit">Audit & Assurance</option>
-                    <option value="software">Software Advisory</option>
-                    <option value="consultancy">Consultancy</option>
-                    <option value="legal">Legal Compliance</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bsts-navy"
-                    required
-                  ></textarea>
-                </div>
-                
-                <div>
+
+                  <FormField
+                    control={form.control}
+                    name="position"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Position You're Applying For</FormLabel>
+                        <FormControl>
+                          <Input placeholder="e.g., Accountant" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="cv"
+                    render={({ field: { value, onChange, ...field } }) => (
+                      <FormItem>
+                        <FormLabel>Upload CV</FormLabel>
+                        <FormControl>
+                          <div className="flex items-center gap-4">
+                            <Input
+                              type="file"
+                              accept=".pdf,.doc,.docx"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                onChange(file);
+                              }}
+                              {...field}
+                              className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-bsts-navy file:text-white hover:file:bg-bsts-navy/90"
+                            />
+                            <Upload className="h-5 w-5 text-gray-500" />
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="coverLetter"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Cover Letter</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            placeholder="Write your cover letter here..."
+                            className="min-h-[200px]"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
                   <Button type="submit" className="w-full bg-bsts-burgundy hover:bg-bsts-burgundy/90">
-                    Send Message
+                    Submit Application
                   </Button>
-                </div>
-              </form>
+                </form>
+              </Form>
             </div>
             
             {/* Contact Information */}
@@ -126,27 +184,45 @@ const Contact = () => {
               />
               
               <div className="mt-8 space-y-8">
-                <div>
-                  <h3 className="text-lg font-semibold text-bsts-navy mb-2">Main Office</h3>
-                  <address className="not-italic text-gray-600">
-                    <p>123 Business Avenue</p>
-                    <p>Suite 200</p>
-                    <p>Business District, City</p>
-                    <p>Postal Code</p>
-                  </address>
-                </div>
-                
-                <div>
-                  <h3 className="text-lg font-semibold text-bsts-navy mb-2">Contact Details</h3>
-                  <div className="text-gray-600">
-                    <p>Phone: +1 (555) 123-4567</p>
-                    <p>Email: info@bstsassociates.com</p>
-                    <p>Hours: Monday - Friday, 9am - 5pm</p>
+                <div className="flex items-start gap-4">
+                  <MapPin className="h-6 w-6 text-bsts-navy shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-bsts-navy mb-2">Office Location</h3>
+                    <address className="not-italic text-gray-600">
+                      <p>Rosslyn Hill, House No. M614/3</p>
+                      <p>Madina New Road</p>
+                      <p>Madina – Ghana</p>
+                    </address>
                   </div>
                 </div>
                 
-                <div className="rounded-lg overflow-hidden shadow-md h-80 bg-gray-200">
-                  {/* Map would go here - using a placeholder */}
+                <div className="flex items-start gap-4">
+                  <Phone className="h-6 w-6 text-bsts-navy shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-bsts-navy mb-2">Phone</h3>
+                    <p className="text-gray-600">+233 (0) 54 265 7948</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <Mail className="h-6 w-6 text-bsts-navy shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-bsts-navy mb-2">Email</h3>
+                    <p className="text-gray-600">info@bstsandassociates.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <Clock className="h-6 w-6 text-bsts-navy shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-bsts-navy mb-2">Open Hours</h3>
+                    <p className="text-gray-600">Monday to Friday</p>
+                    <p className="text-gray-600">8:00 AM to 5:00 PM</p>
+                  </div>
+                </div>
+                
+                <div className="rounded-lg overflow-hidden shadow-md h-80 bg-gray-200 mt-8">
+                  {/* Map placeholder */}
                   <div className="w-full h-full flex items-center justify-center bg-bsts-lightblue">
                     <p className="text-bsts-navy">Map Location</p>
                   </div>

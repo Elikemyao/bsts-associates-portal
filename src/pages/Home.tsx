@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-bsts-navy to-bsts-burgundy text-white py-16 md:py-24">
+      <section className="bg-gradient-to-r from-bsts-navy to-bsts-burgundy text-white py-16 md:py-24 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
@@ -27,12 +27,14 @@ const Home = () => {
                 </Button>
               </div>
             </div>
-            <div className="hidden md:block overflow-hidden">
-              <img 
-                src="/lovable-uploads/7795640d-dd2a-4fb4-928d-35b22673ec6a.png"
-                alt="BSTS & Associates Professional Services" 
-                className="rounded-lg shadow-xl w-full h-auto animate-[zoom-out_20s_ease-in-out_infinite] transform hover:scale-105 transition-transform duration-500"
-              />
+            <div className="hidden md:block relative">
+              <div className="w-[500px] h-[500px] rounded-full overflow-hidden">
+                <img 
+                  src="/lovable-uploads/0beccccf-af81-4949-a914-2d6303096556.png"
+                  alt="Virtual Reality Business Innovation" 
+                  className="w-full h-full object-cover animate-[scale-in_1s_ease-out,fade-in_1.5s_ease-out] transform hover:scale-105 transition-all duration-700"
+                />
+              </div>
             </div>
           </div>
         </div>

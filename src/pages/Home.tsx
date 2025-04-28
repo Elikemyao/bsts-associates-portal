@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -28,11 +27,11 @@ const Home = () => {
                 </Button>
               </div>
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&h=400&q=80" 
+                src="/lovable-uploads/7795640d-dd2a-4fb4-928d-35b22673ec6a.png"
                 alt="BSTS & Associates Professional Services" 
-                className="rounded-lg shadow-xl"
+                className="rounded-lg shadow-xl w-full h-auto animate-[zoom-out_20s_ease-in-out_infinite] transform hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>

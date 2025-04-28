@@ -1,24 +1,19 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
-import { Upload, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
-import TestimonialCard from '@/components/TestimonialCard';
 
 const Contact = () => {
   const form = useForm({
     defaultValues: {
-      firstName: '',
-      lastName: '',
+      name: '',
       email: '',
-      phone: '',
-      position: '',
-      cv: null,
-      coverLetter: '',
+      subject: '',
+      message: '',
     },
   });
 
@@ -54,34 +49,19 @@ const Contact = () => {
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="firstName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>First Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="John" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="lastName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Last Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Doe" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="John Doe" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
                   <FormField
                     control={form.control}
@@ -99,12 +79,12 @@ const Contact = () => {
 
                   <FormField
                     control={form.control}
-                    name="phone"
+                    name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone</FormLabel>
+                        <FormLabel>Subject</FormLabel>
                         <FormControl>
-                          <Input type="tel" placeholder="+233 (0) XX XXX XXXX" {...field} />
+                          <Input placeholder="How can we help you?" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -113,54 +93,14 @@ const Contact = () => {
 
                   <FormField
                     control={form.control}
-                    name="position"
+                    name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Position You're Applying For</FormLabel>
-                        <FormControl>
-                          <Input placeholder="e.g., Accountant" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="cv"
-                    render={({ field: { value, onChange, ...field } }) => (
-                      <FormItem>
-                        <FormLabel>Upload CV</FormLabel>
-                        <FormControl>
-                          <div className="flex items-center gap-4">
-                            <Input
-                              type="file"
-                              accept=".pdf,.doc,.docx"
-                              onChange={(e) => {
-                                const file = e.target.files?.[0];
-                                onChange(file);
-                              }}
-                              {...field}
-                              className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-bsts-navy file:text-white hover:file:bg-bsts-navy/90"
-                            />
-                            <Upload className="h-5 w-5 text-gray-500" />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="coverLetter"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Cover Letter</FormLabel>
+                        <FormLabel>Message</FormLabel>
                         <FormControl>
                           <Textarea 
-                            placeholder="Write your cover letter here..."
-                            className="min-h-[200px]"
+                            placeholder="Write your message here..."
+                            className="min-h-[150px]"
                             {...field}
                           />
                         </FormControl>
@@ -170,7 +110,7 @@ const Contact = () => {
                   />
 
                   <Button type="submit" className="w-full bg-bsts-burgundy hover:bg-bsts-burgundy/90">
-                    Submit Application
+                    Send Message
                   </Button>
                 </form>
               </Form>
@@ -218,13 +158,6 @@ const Contact = () => {
                     <h3 className="text-lg font-semibold text-bsts-navy mb-2">Open Hours</h3>
                     <p className="text-gray-600">Monday to Friday</p>
                     <p className="text-gray-600">8:00 AM to 5:00 PM</p>
-                  </div>
-                </div>
-                
-                <div className="rounded-lg overflow-hidden shadow-md h-80 bg-gray-200 mt-8">
-                  {/* Map placeholder */}
-                  <div className="w-full h-full flex items-center justify-center bg-bsts-lightblue">
-                    <p className="text-bsts-navy">Map Location</p>
                   </div>
                 </div>
               </div>

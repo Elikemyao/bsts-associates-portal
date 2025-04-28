@@ -1,11 +1,20 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SectionHeading from '@/components/SectionHeading';
 import CTASection from '@/components/CTASection';
+import JobApplicationForm from '@/components/JobApplicationForm';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const Careers = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedPosition, setSelectedPosition] = useState('');
+
+  const openApplicationForm = (position: string) => {
+    setSelectedPosition(position);
+    setIsDialogOpen(true);
+  };
+
   return (
     <div>
       {/* Header Section */}
@@ -81,8 +90,11 @@ const Careers = () => {
               <p className="text-gray-600 mb-6">
                 Our internship program offers students and recent graduates the opportunity to gain practical experience and valuable industry insights while working alongside our professionals.
               </p>
-              <Button asChild className="w-full bg-bsts-navy hover:bg-bsts-navy/90">
-                <Link to="/careers/internship">Learn More</Link>
+              <Button 
+                className="w-full bg-bsts-navy hover:bg-bsts-navy/90"
+                onClick={() => openApplicationForm('Internship')}
+              >
+                Apply Now
               </Button>
             </div>
             
@@ -92,8 +104,11 @@ const Careers = () => {
               <p className="text-gray-600 mb-6">
                 Our National Service program provides meaningful experiences for service personnel, building skills and knowledge that will benefit their future careers.
               </p>
-              <Button asChild className="w-full bg-bsts-navy hover:bg-bsts-navy/90">
-                <Link to="/careers/national-service">Learn More</Link>
+              <Button 
+                className="w-full bg-bsts-navy hover:bg-bsts-navy/90"
+                onClick={() => openApplicationForm('National Service')}
+              >
+                Apply Now
               </Button>
             </div>
             
@@ -103,8 +118,11 @@ const Careers = () => {
               <p className="text-gray-600 mb-6">
                 Explore current job openings for experienced professionals across our various departments and service areas.
               </p>
-              <Button asChild className="w-full bg-bsts-navy hover:bg-bsts-navy/90">
-                <Link to="/careers/job-vacancy">View Openings</Link>
+              <Button 
+                className="w-full bg-bsts-navy hover:bg-bsts-navy/90"
+                onClick={() => openApplicationForm('Full Time Position')}
+              >
+                Apply Now
               </Button>
             </div>
           </div>
@@ -260,6 +278,16 @@ const Careers = () => {
         secondaryButtonText="Learn About Internships"
         secondaryButtonLink="/careers/internship"
       />
+
+      {/* Application Form Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Apply for {selectedPosition}</DialogTitle>
+          </DialogHeader>
+          <JobApplicationForm position={selectedPosition} />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

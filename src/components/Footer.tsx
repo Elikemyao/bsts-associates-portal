@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -72,11 +71,11 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
             <address className="not-italic text-gray-300 space-y-2">
-              <p>123 Business Avenue</p>
-              <p>Suite 200</p>
-              <p>Business District, City</p>
-              <p className="mt-4">Email: info@bstsassociates.com</p>
-              <p>Phone: +1 (555) 123-4567</p>
+              <p>Rosslyn Hill, House No. M614/3</p>
+              <p>Madina New Road</p>
+              <p>Madina – Ghana</p>
+              <p className="mt-4">Email: info@bstsandassociates.com</p>
+              <p>Phone: +233 (0) 54 265 7948</p>
             </address>
           </div>
         </div>

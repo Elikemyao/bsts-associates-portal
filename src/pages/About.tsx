@@ -1,7 +1,6 @@
 
 import React from 'react';
 import SectionHeading from '@/components/SectionHeading';
-import TestimonialCard from '@/components/TestimonialCard';
 import CTASection from '@/components/CTASection';
 
 const About = () => {
@@ -80,115 +79,6 @@ const About = () => {
                 <li>• Collaboration and teamwork</li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
-            title="Meet Our Leadership Team" 
-            subtitle="Our experienced leadership team brings diverse expertise and a shared commitment to excellence."
-            centered={true}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-            {/* Team Member 1 */}
-            <div className="text-center">
-              <div className="mb-4 rounded-full overflow-hidden w-40 h-40 mx-auto">
-                <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&h=300&q=80" 
-                  alt="John Smith" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-bsts-navy">John Smith</h3>
-              <p className="text-bsts-burgundy mb-2">Managing Director</p>
-              <p className="text-gray-600 text-sm">
-                With over 20 years of experience in finance and business advisory, John leads our firm with vision and expertise.
-              </p>
-            </div>
-            
-            {/* Team Member 2 */}
-            <div className="text-center">
-              <div className="mb-4 rounded-full overflow-hidden w-40 h-40 mx-auto">
-                <img 
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&h=300&q=80" 
-                  alt="Sarah Johnson" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-bsts-navy">Sarah Johnson</h3>
-              <p className="text-bsts-burgundy mb-2">Head of Accounting Services</p>
-              <p className="text-gray-600 text-sm">
-                Sarah brings specialized expertise in accounting and financial reporting to drive value for our clients.
-              </p>
-            </div>
-            
-            {/* Team Member 3 */}
-            <div className="text-center">
-              <div className="mb-4 rounded-full overflow-hidden w-40 h-40 mx-auto">
-                <img 
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&h=300&q=80" 
-                  alt="Michael Chen" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-bsts-navy">Michael Chen</h3>
-              <p className="text-bsts-burgundy mb-2">Head of Tax Services</p>
-              <p className="text-gray-600 text-sm">
-                Michael's deep knowledge of tax regulations helps our clients navigate complexities and optimize tax strategies.
-              </p>
-            </div>
-            
-            {/* Team Member 4 */}
-            <div className="text-center">
-              <div className="mb-4 rounded-full overflow-hidden w-40 h-40 mx-auto">
-                <img 
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&h=300&q=80" 
-                  alt="Emma Rodriguez" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-bsts-navy">Emma Rodriguez</h3>
-              <p className="text-bsts-burgundy mb-2">Head of Consultancy</p>
-              <p className="text-gray-600 text-sm">
-                Emma leads our consultancy services with strategic vision and a focus on delivering measurable results.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-bsts-lightblue">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
-            title="Client Success Stories" 
-            subtitle="See how we've helped businesses overcome challenges and achieve their goals."
-            centered={true}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="BSTS & Associates helped us restructure our financial operations during a critical growth phase. Their expertise was invaluable to our success."
-              author="David Wilson"
-              role="CEO"
-              company="Innovate Manufacturing"
-            />
-            <TestimonialCard
-              quote="The team at BSTS & Associates provided us with strategic tax planning that saved us significant costs while ensuring complete compliance."
-              author="Jessica Lee"
-              role="Finance Director"
-              company="Horizon Healthcare"
-            />
-            <TestimonialCard
-              quote="Their consultancy services helped us identify new growth opportunities and optimize our business processes. Highly recommended!"
-              author="Robert Thompson"
-              role="Managing Director"
-              company="Global Logistics"
-            />
           </div>
         </div>
       </section>

@@ -94,20 +94,21 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-semibold;
+    @apply font-display font-semibold tracking-tight;
   }
 }
 
 @layer components {
   .hero-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-semibold mb-6;
+    @apply text-3xl md:text-4xl font-semibold mb-6 leading-tight;
   }
   
   .section-subtitle {
@@ -129,4 +130,72 @@
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
+  
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/90 border border-white/20 shadow-lg;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Professional animations */
+  .fade-up {
+    @apply animate-[fadeUp_0.5s_ease-out_forwards];
+  }
+  
+  .fade-in-delay-1 {
+    @apply animate-[fadeIn_0.6s_ease-out_0.1s_forwards] opacity-0;
+  }
+  
+  .fade-in-delay-2 {
+    @apply animate-[fadeIn_0.6s_ease-out_0.2s_forwards] opacity-0;
+  }
+  
+  .fade-in-delay-3 {
+    @apply animate-[fadeIn_0.6s_ease-out_0.3s_forwards] opacity-0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Remove mobile browser tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
 }

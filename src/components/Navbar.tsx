@@ -1,18 +1,43 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
+  // Check if current route is active
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <nav className={cn(
+      "sticky top-0 z-50 transition-all duration-300",
+      isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-white"
+    )}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
@@ -28,13 +53,73 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-6">
-              <Link to="/" className="text-gray-700 hover:text-bsts-navy px-3 py-2 font-medium">Home</Link>
-              <Link to="/about" className="text-gray-700 hover:text-bsts-navy px-3 py-2 font-medium">About Us</Link>
-              <Link to="/services" className="text-gray-700 hover:text-bsts-navy px-3 py-2 font-medium">Services</Link>
-              <Link to="/careers" className="text-gray-700 hover:text-bsts-navy px-3 py-2 font-medium">Careers</Link>
-              <Link to="/insights" className="text-gray-700 hover:text-bsts-navy px-3 py-2 font-medium">Insights</Link>
-              <Link to="/contact" className="text-gray-700 hover:text-bsts-navy px-3 py-2 font-medium">Contact</Link>
+            <div className="ml-10 flex items-center space-x-1">
+              <Link 
+                to="/" 
+                className={cn(
+                  "px-3 py-2 font-medium text-sm rounded-md transition-colors",
+                  isActive('/') 
+                    ? "text-bsts-navy font-semibold" 
+                    : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
+                )}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/about" 
+                className={cn(
+                  "px-3 py-2 font-medium text-sm rounded-md transition-colors",
+                  isActive('/about') 
+                    ? "text-bsts-navy font-semibold" 
+                    : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
+                )}
+              >
+                About Us
+              </Link>
+              <Link 
+                to="/services" 
+                className={cn(
+                  "px-3 py-2 font-medium text-sm rounded-md transition-colors",
+                  isActive('/services') || location.pathname.startsWith('/services/') 
+                    ? "text-bsts-navy font-semibold" 
+                    : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
+                )}
+              >
+                Services
+              </Link>
+              <Link 
+                to="/careers" 
+                className={cn(
+                  "px-3 py-2 font-medium text-sm rounded-md transition-colors",
+                  isActive('/careers') 
+                    ? "text-bsts-navy font-semibold" 
+                    : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
+                )}
+              >
+                Careers
+              </Link>
+              <Link 
+                to="/insights" 
+                className={cn(
+                  "px-3 py-2 font-medium text-sm rounded-md transition-colors",
+                  isActive('/insights') || location.pathname.startsWith('/insights/') 
+                    ? "text-bsts-navy font-semibold" 
+                    : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
+                )}
+              >
+                Insights
+              </Link>
+              <Link 
+                to="/contact" 
+                className={cn(
+                  "px-3 py-2 font-medium text-sm rounded-md transition-colors",
+                  isActive('/contact') 
+                    ? "text-bsts-navy font-semibold" 
+                    : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
+                )}
+              >
+                Contact
+              </Link>
               <Button asChild size="sm" className="bg-bsts-navy hover:bg-bsts-navy/90 ml-3">
                 <Link to="/contact">Get Started</Link>
               </Button>
@@ -56,46 +141,76 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-b border-gray-200">
+        <div className="md:hidden bg-white shadow-lg absolute w-full left-0 right-0 z-50 animate-fade-in">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link 
               to="/" 
-              className="block px-3 py-2 text-gray-700 hover:text-bsts-navy font-medium"
+              className={cn(
+                "block px-3 py-2 rounded-md text-sm font-medium",
+                isActive('/') 
+                  ? "bg-gray-50 text-bsts-navy"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
+              )}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               to="/about" 
-              className="block px-3 py-2 text-gray-700 hover:text-bsts-navy font-medium"
+              className={cn(
+                "block px-3 py-2 rounded-md text-sm font-medium",
+                isActive('/about') 
+                  ? "bg-gray-50 text-bsts-navy"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
+              )}
               onClick={() => setIsMenuOpen(false)}
             >
               About Us
             </Link>
             <Link 
               to="/services" 
-              className="block px-3 py-2 text-gray-700 hover:text-bsts-navy font-medium"
+              className={cn(
+                "block px-3 py-2 rounded-md text-sm font-medium",
+                isActive('/services') || location.pathname.startsWith('/services/')
+                  ? "bg-gray-50 text-bsts-navy"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
+              )}
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link 
               to="/careers" 
-              className="block px-3 py-2 text-gray-700 hover:text-bsts-navy font-medium"
+              className={cn(
+                "block px-3 py-2 rounded-md text-sm font-medium",
+                isActive('/careers') 
+                  ? "bg-gray-50 text-bsts-navy"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
+              )}
               onClick={() => setIsMenuOpen(false)}
             >
               Careers
             </Link>
             <Link 
               to="/insights" 
-              className="block px-3 py-2 text-gray-700 hover:text-bsts-navy font-medium"
+              className={cn(
+                "block px-3 py-2 rounded-md text-sm font-medium",
+                isActive('/insights') || location.pathname.startsWith('/insights/')
+                  ? "bg-gray-50 text-bsts-navy"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
+              )}
               onClick={() => setIsMenuOpen(false)}
             >
               Insights
             </Link>
             <Link 
               to="/contact" 
-              className="block px-3 py-2 text-gray-700 hover:text-bsts-navy font-medium"
+              className={cn(
+                "block px-3 py-2 rounded-md text-sm font-medium",
+                isActive('/contact') 
+                  ? "bg-gray-50 text-bsts-navy"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
+              )}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact

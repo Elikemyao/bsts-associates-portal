@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import SectionHeading from '@/components/SectionHeading';
 import FeatureCard from '@/components/FeatureCard';
-import TestimonialCard from '@/components/TestimonialCard';
 import CTASection from '@/components/CTASection';
 
 const Home = () => {
@@ -40,8 +41,56 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Core Services Section */}
+      {/* About Us Section - New section added before Services */}
       <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <SectionHeading 
+                title="About Us" 
+                subtitle="Comprehensive Financial Planning and Advisory Services"
+                centered={false}
+              />
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  BSTS is a consulting firm with focus on providing accessible financial planning with financial solutions (accountancy, assurance, taxation and business advisory services) to profit and non-profit enterprising entities. BSTS is a registered accounting practicing firm licensed by the Institute of Chartered Accountants (Ghana).
+                </p>
+                <p>
+                  BSTS is founded and promoted by a team of professionals with the right combination of skills and experience to bring value to the assignment.
+                </p>
+                <p>
+                  BSTS has worked to the highest standards in providing its clients with comprehensive Audit, Accounting and Consulting services protecting their interest.
+                </p>
+                <p>
+                  With the technological expertise of the younger generation and the knowledge of our professionally educated and experienced accountants we developed and improved our working methods and internal procedures upholding our one and only target providing the most comprehensive and efficient service for the needs of our clients.
+                </p>
+                <p>
+                  We always show flexibility and apply individual approach to each client, optimizing the efficiency of their accounting, finances, and tax obligations according to the nature of their business.
+                </p>
+              </div>
+              <div className="mt-6">
+                <Button asChild className="bg-bsts-navy hover:bg-bsts-navy/90">
+                  <Link to="/about">Learn More About Us</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="rounded-lg overflow-hidden shadow-xl">
+                <AspectRatio ratio={4/3}>
+                  <img 
+                    src="/lovable-uploads/7795640d-dd2a-4fb4-928d-35b22673ec6a.png"
+                    alt="Professional BSTS Consultant" 
+                    className="w-full h-full object-cover"
+                  />
+                </AspectRatio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Services Section */}
+      <section className="py-16 md:py-24 bg-bsts-gray">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
             title="Our Core Services" 

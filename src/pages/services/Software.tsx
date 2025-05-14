@@ -3,7 +3,6 @@ import React from 'react';
 import { FileText, Shield, BookOpen, ClipboardCheck, BookLock, FilePen } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
-import TestimonialCard from '@/components/TestimonialCard';
 
 const SoftwareService = () => {
   return (
@@ -49,24 +48,6 @@ const SoftwareService = () => {
           icon={<FilePen className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=300"
         />
-      </div>
-
-      <div className="mt-20 animate-fade-in">
-        <h2 className="text-2xl font-semibold text-bsts-navy mb-8">Client Success Stories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <TestimonialCard
-            quote="Their software advisory services helped us choose and implement the perfect system for our needs."
-            author="James Wilson"
-            role="IT Director"
-            company="Digital Solutions Co."
-          />
-          <TestimonialCard
-            quote="The training and support provided by BSTS made our software transition smooth and efficient."
-            author="Sarah Martinez"
-            role="Operations Manager"
-            company="Retail Group Ltd"
-          />
-        </div>
       </div>
     </ServiceLayout>
   );

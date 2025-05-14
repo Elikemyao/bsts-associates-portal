@@ -1,8 +1,8 @@
+
 import React from 'react';
 import { BookOpen, ClipboardCheck, Shield, FileText, Contact, Handshake } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
-import TestimonialCard from '@/components/TestimonialCard';
 
 const TrainingService = () => {
   return (
@@ -48,24 +48,6 @@ const TrainingService = () => {
           icon={<Handshake className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=300"
         />
-      </div>
-
-      <div className="mt-20 animate-fade-in">
-        <h2 className="text-2xl font-semibold text-bsts-navy mb-8">Training Success Stories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <TestimonialCard
-            quote="The training programs provided by BSTS have significantly improved our team's capabilities and efficiency."
-            author="Richard Park"
-            role="Training Manager"
-            company="Corporate Solutions"
-          />
-          <TestimonialCard
-            quote="Their practical approach to training has helped our staff develop valuable skills that we use daily."
-            author="Susan Miller"
-            role="HR Director"
-            company="Global Enterprise Ltd"
-          />
-        </div>
       </div>
     </ServiceLayout>
   );

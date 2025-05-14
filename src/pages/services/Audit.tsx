@@ -1,8 +1,8 @@
+
 import React from 'react';
 import { ClipboardCheck, Shield, FileText, Scale, Contact, ShieldCheck } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
-import TestimonialCard from '@/components/TestimonialCard';
 
 const AuditService = () => {
   return (
@@ -48,24 +48,6 @@ const AuditService = () => {
           icon={<ShieldCheck className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=300"
         />
-      </div>
-
-      <div className="mt-20 animate-fade-in">
-        <h2 className="text-2xl font-semibold text-bsts-navy mb-8">What Our Clients Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <TestimonialCard
-            quote="BSTS's audit team provided exceptional service and valuable insights that helped strengthen our internal controls."
-            author="Robert Chen"
-            role="CFO"
-            company="Global Manufacturing Inc."
-          />
-          <TestimonialCard
-            quote="Their thorough approach to auditing gave us complete confidence in our financial reporting."
-            author="Emma Thompson"
-            role="Finance Director"
-            company="Tech Solutions Ltd"
-          />
-        </div>
       </div>
     </ServiceLayout>
   );

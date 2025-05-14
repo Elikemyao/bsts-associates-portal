@@ -7,7 +7,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { useForm } from 'react-hook-form';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
-import TestimonialCard from '@/components/TestimonialCard';
 
 const Contact = () => {
   const form = useForm({
@@ -164,38 +163,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-bsts-gray">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
-            title="What Our Clients Say" 
-            subtitle="Don't just take our word for it - hear from our satisfied clients."
-            centered={true}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            <TestimonialCard
-              quote="BSTS & Associates has been a game-changer for our business. Their expertise and personalized approach have helped us achieve remarkable growth."
-              author="James Wilson"
-              role="CEO"
-              company="Innovate Technologies"
-            />
-            <TestimonialCard
-              quote="The team at BSTS & Associates are true professionals. They're responsive, knowledgeable, and genuinely invested in our success."
-              author="Lisa Thompson"
-              role="CFO"
-              company="Global Solutions"
-            />
-            <TestimonialCard
-              quote="We've worked with BSTS & Associates for over 5 years, and they continue to exceed our expectations with their exceptional service."
-              author="Mark Johnson"
-              role="Managing Director"
-              company="Premier Enterprises"
-            />
           </div>
         </div>
       </section>

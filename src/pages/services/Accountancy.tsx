@@ -3,7 +3,6 @@ import React from 'react';
 import { FileText, Calculator, PieChart, TrendingUp, Shield, ClipboardCheck } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
-import TestimonialCard from '@/components/TestimonialCard';
 
 const AccountancyService = () => {
   return (
@@ -43,25 +42,6 @@ const AccountancyService = () => {
           description="Stay compliant with all regulatory requirements through our detailed reporting services."
           icon={<ClipboardCheck className="h-10 w-10" />}
         />
-      </div>
-
-      {/* Testimonials */}
-      <div className="mt-20">
-        <h2 className="text-2xl font-semibold text-bsts-navy mb-8">Client Success Stories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <TestimonialCard
-            quote="BSTS & Associates has transformed our accounting processes. Their attention to detail and expertise is unmatched."
-            author="Sarah Johnson"
-            role="CFO"
-            company="Tech Solutions Ltd"
-          />
-          <TestimonialCard
-            quote="The team's professionalism and knowledge in handling our accounts has been invaluable to our business growth."
-            author="Michael Chen"
-            role="Director"
-            company="Global Innovations"
-          />
-        </div>
       </div>
     </ServiceLayout>
   );

@@ -3,7 +3,6 @@ import React from 'react';
 import { Calculator, FileCheck, Shield, TrendingUp, Scale, AlertCircle } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import ServiceFeature from '@/components/ServiceFeature';
-import TestimonialCard from '@/components/TestimonialCard';
 
 const TaxationPlanningService = () => {
   return (
@@ -50,25 +49,6 @@ const TaxationPlanningService = () => {
           icon={<AlertCircle className="h-10 w-10" />}
           imageUrl="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&q=80&w=300"
         />
-      </div>
-
-      {/* Testimonials */}
-      <div className="mt-20 animate-fade-in">
-        <h2 className="text-2xl font-semibold text-bsts-navy mb-8">Client Success Stories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <TestimonialCard
-            quote="The tax planning advice from BSTS & Associates has helped us save significantly while staying fully compliant. Their expertise in handling complex tax matters is outstanding."
-            author="David Wilson"
-            role="CEO"
-            company="Retail Solutions Inc"
-          />
-          <TestimonialCard
-            quote="Their expertise in tax matters has been invaluable for our international operations. They consistently deliver exceptional service and valuable insights."
-            author="Lisa Zhang"
-            role="Financial Director"
-            company="International Trade Co"
-          />
-        </div>
       </div>
     </ServiceLayout>
   );

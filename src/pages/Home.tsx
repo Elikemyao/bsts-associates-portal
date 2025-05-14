@@ -281,38 +281,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
-            title="What Our Clients Say" 
-            subtitle="Don't just take our word for it - hear from some of our satisfied clients."
-            centered={true}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="BSTS & Associates transformed our accounting processes, saving us time and money while providing valuable insights for our business growth."
-              author="Sarah Johnson"
-              role="CFO"
-              company="Tech Innovations Ltd."
-            />
-            <TestimonialCard
-              quote="Their tax planning services have been invaluable to our business. Their expertise has helped us navigate complex regulations while maximizing our tax efficiency."
-              author="Michael Chen"
-              role="CEO"
-              company="Global Trade Inc."
-            />
-            <TestimonialCard
-              quote="The consultancy team at BSTS & Associates helped us scale our operations effectively. Their strategic guidance has been instrumental in our success."
-              author="Emma Rodriguez"
-              role="Operations Director"
-              company="Creative Solutions"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Newsletter Section */}
       <section className="py-16 md:py-20 bg-bsts-lightblue">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

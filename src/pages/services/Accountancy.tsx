@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, FileChart, Calculator, FileText } from 'lucide-react';
+import { Check, FileHeart, Calculator, FileText } from 'lucide-react';
 import ServiceLayout from '@/components/ServiceLayout';
 import SectionHeading from '@/components/SectionHeading';
 import ServiceFeature from '@/components/ServiceFeature';
@@ -75,7 +75,7 @@ const AccountancyService = () => {
           <ServiceFeature
             title="Financial Reporting"
             description="Our comprehensive financial reporting gives you clear insights into your business's performance to support informed decision-making."
-            icon={<FileChart className="h-6 w-6" />}
+            icon={<FileHeart className="h-6 w-6" />}
           />
         </div>
       </div>

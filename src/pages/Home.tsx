@@ -31,8 +31,8 @@ const Home = () => {
             <div className="hidden md:block relative">
               <div className="w-[500px] h-[500px] rounded-full overflow-hidden">
                 <img 
-                  src="/lovable-uploads/0beccccf-af81-4949-a914-2d6303096556.png"
-                  alt="Virtual Reality Business Innovation" 
+                  src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBidXNpbmVzcyUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                  alt="African Business Professionals" 
                   className="w-full h-full object-cover animate-[scale-in_1s_ease-out,fade-in_1.5s_ease-out] transform hover:scale-105 transition-all duration-700"
                 />
               </div>
@@ -78,8 +78,8 @@ const Home = () => {
               <div className="rounded-lg overflow-hidden shadow-xl">
                 <AspectRatio ratio={4/3}>
                   <img 
-                    src="/lovable-uploads/7795640d-dd2a-4fb4-928d-35b22673ec6a.png"
-                    alt="Professional BSTS Consultant" 
+                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWZyaWNhbiUyMGJ1c2luZXNzJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+                    alt="African Business Consultant" 
                     className="w-full h-full object-cover"
                   />
                 </AspectRatio>

@@ -10,7 +10,7 @@ const LegalService = () => {
     <ServiceLayout
       title="Legal Compliance"
       subtitle="Comprehensive legal compliance services to protect and guide your business"
-      headerImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200"
+      headerImage="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFmcmljYW4lMjBsYXd5ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=80&w=1200"
     >
       {/* Introduction */}
       <div className="mb-12">
@@ -23,7 +23,7 @@ const LegalService = () => {
         <div className="relative overflow-hidden rounded-xl">
           <AspectRatio ratio={16/9} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1200" 
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFmcmljYW4lMjBidXNpbmVzcyUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=80&w=1200" 
               alt="Legal Compliance Services" 
               className="object-cover w-full h-full"
             />
@@ -76,7 +76,7 @@ const LegalService = () => {
         <div className="relative overflow-hidden rounded-xl shadow-lg">
           <AspectRatio ratio={4/3} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600" 
+              src="https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWZyaWNhbiUyMGJ1c2luZXNzJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=80&w=600" 
               alt="Corporate Governance" 
               className="object-cover w-full h-full"
             />

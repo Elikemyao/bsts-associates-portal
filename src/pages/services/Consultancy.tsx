@@ -10,7 +10,7 @@ const ConsultancyService = () => {
     <ServiceLayout
       title="Business Consultancy"
       subtitle="Strategic business consulting to drive growth and optimize performance"
-      headerImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1200"
+      headerImage="https://images.unsplash.com/photo-1556761175-129418cb2dfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YWZyaWNhbiUyMGJ1c2luZXNzJTIwdGVhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=80&w=1200"
     >
       {/* Introduction */}
       <div className="mb-12">
@@ -23,7 +23,7 @@ const ConsultancyService = () => {
         <div className="relative overflow-hidden rounded-xl">
           <AspectRatio ratio={16/9} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" 
+              src="https://images.unsplash.com/photo-1553484771-689e1614ff14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGFmcmljYW4lMjBidXNpbmVzcyUyMHRlYW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=80&w=1200" 
               alt="Business Consultancy Meeting" 
               className="object-cover w-full h-full"
             />
@@ -92,7 +92,7 @@ const ConsultancyService = () => {
         <div className="relative overflow-hidden rounded-xl shadow-lg">
           <AspectRatio ratio={4/3} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" 
+              src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YWZyaWNhbiUyMGJ1c2luZXNzJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=80&w=600" 
               alt="Business Planning Session" 
               className="object-cover w-full h-full"
             />
@@ -105,7 +105,7 @@ const ConsultancyService = () => {
         <div className="relative overflow-hidden rounded-xl shadow-lg order-2 lg:order-1">
           <AspectRatio ratio={4/3} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600" 
+              src="https://images.unsplash.com/photo-1563906267088-b029e7101114?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFmcmljYW4lMjBidXNpbmVzcyUyMHRlYW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=80&w=600" 
               alt="Business Scaling Team" 
               className="object-cover w-full h-full"
             />

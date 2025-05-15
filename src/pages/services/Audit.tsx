@@ -10,7 +10,7 @@ const AuditService = () => {
     <ServiceLayout
       title="Audit & Assurance"
       subtitle="Comprehensive audit services to ensure accuracy, compliance, and transparency"
-      headerImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200"
+      headerImage="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFmcmljYW4lMjBidXNpbmVzcyUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=80&w=1200"
     >
       {/* Introduction */}
       <div className="mb-12">
@@ -24,7 +24,7 @@ const AuditService = () => {
         <div className="relative overflow-hidden rounded-xl">
           <AspectRatio ratio={16/9} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200" 
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFmcmljYW4lMjBidXNpbmVzcyUyMHRlYW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=80&w=1200" 
               alt="Audit Professional at Work" 
               className="object-cover w-full h-full"
             />
@@ -77,7 +77,7 @@ const AuditService = () => {
         <div className="relative overflow-hidden rounded-xl shadow-lg">
           <AspectRatio ratio={4/3} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600" 
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGFmcmljYW4lMjBidXNpbmVzcyUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=80&w=600" 
               alt="Audit Team Working" 
               className="object-cover w-full h-full"
             />

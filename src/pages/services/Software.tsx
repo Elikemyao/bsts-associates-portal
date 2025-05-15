@@ -11,7 +11,7 @@ const SoftwareService = () => {
     <ServiceLayout
       title="Software Advisory & Training"
       subtitle="Expert guidance on business software solutions to enhance your operational efficiency"
-      headerImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1200"
+      headerImage="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YWZyaWNhbiUyMHRlY2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=80&w=1200"
     >
       {/* Introduction */}
       <div className="mb-12">
@@ -25,7 +25,7 @@ const SoftwareService = () => {
         <div className="relative overflow-hidden rounded-xl">
           <AspectRatio ratio={16/9} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1200" 
+              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFmcmljYW4lMjB0ZWNofGVufDB8fDB8fHww&auto=format&fit=crop&q=80&w=1200" 
               alt="Software Advisory Team" 
               className="object-cover w-full h-full"
             />
@@ -151,7 +151,7 @@ const SoftwareService = () => {
         <div className="relative overflow-hidden rounded-xl shadow-lg">
           <AspectRatio ratio={4/3} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=600" 
+              src="https://images.unsplash.com/photo-1570872626485-d8ffea69f463?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFmcmljYW4lMjB0ZWNofGVufDB8fDB8fHww&auto=format&fit=crop&q=80&w=600" 
               alt="Software Training Session" 
               className="object-cover w-full h-full"
             />

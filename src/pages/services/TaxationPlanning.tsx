@@ -12,7 +12,7 @@ const TaxationPlanningService = () => {
     <ServiceLayout
       title="Taxation & Tax Planning"
       subtitle="Strategic tax planning and compliance services to optimize your tax position and ensure peace of mind"
-      headerImage="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200"
+      headerImage="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGFmcmljYW4lMjBidXNpbmVzcyUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=80&w=1200"
     >
       {/* Introduction */}
       <div className="mb-12">
@@ -25,7 +25,7 @@ const TaxationPlanningService = () => {
         <div className="relative overflow-hidden rounded-xl">
           <AspectRatio ratio={16/9} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" 
+              src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFmcmljYW4lMjBidXNpbmVzcyUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=80&w=1200" 
               alt="Tax Planning Consultation" 
               className="object-cover w-full h-full"
             />
@@ -113,7 +113,7 @@ const TaxationPlanningService = () => {
         <div className="relative overflow-hidden rounded-xl shadow-lg">
           <AspectRatio ratio={4/3} className="bg-muted">
             <img 
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600" 
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YWZyaWNhbiUyMGJ1c2luZXNzJTIwdGVhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=80&w=600" 
               alt="Tax Consultation" 
               className="object-cover w-full h-full"
             />

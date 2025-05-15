@@ -24,8 +24,22 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  
+  // Navigation link handler - close menu and scroll to top
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
   
   // Check if current route is active
@@ -42,7 +56,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" onClick={handleNavClick}>
               <img
                 src="/lovable-uploads/66e7bfb8-cbca-4da1-8857-6e685d8d2adc.png"
                 alt="BSTS & Associates Logo"
@@ -62,6 +76,7 @@ const Navbar = () => {
                     ? "text-bsts-navy font-semibold" 
                     : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
                 )}
+                onClick={handleNavClick}
               >
                 Home
               </Link>
@@ -73,6 +88,7 @@ const Navbar = () => {
                     ? "text-bsts-navy font-semibold" 
                     : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
                 )}
+                onClick={handleNavClick}
               >
                 About Us
               </Link>
@@ -84,6 +100,7 @@ const Navbar = () => {
                     ? "text-bsts-navy font-semibold" 
                     : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
                 )}
+                onClick={handleNavClick}
               >
                 Services
               </Link>
@@ -95,6 +112,7 @@ const Navbar = () => {
                     ? "text-bsts-navy font-semibold" 
                     : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
                 )}
+                onClick={handleNavClick}
               >
                 Careers
               </Link>
@@ -106,6 +124,7 @@ const Navbar = () => {
                     ? "text-bsts-navy font-semibold" 
                     : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
                 )}
+                onClick={handleNavClick}
               >
                 Insights
               </Link>
@@ -117,11 +136,12 @@ const Navbar = () => {
                     ? "text-bsts-navy font-semibold" 
                     : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
                 )}
+                onClick={handleNavClick}
               >
                 Contact
               </Link>
               <Button asChild size="sm" className="bg-bsts-navy hover:bg-bsts-navy/90 ml-3">
-                <Link to="/contact">Get Started</Link>
+                <Link to="/contact" onClick={handleNavClick}>Get Started</Link>
               </Button>
             </div>
           </div>
@@ -151,7 +171,7 @@ const Navbar = () => {
                   ? "bg-gray-50 text-bsts-navy"
                   : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
               )}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleNavClick}
             >
               Home
             </Link>
@@ -163,7 +183,7 @@ const Navbar = () => {
                   ? "bg-gray-50 text-bsts-navy"
                   : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
               )}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleNavClick}
             >
               About Us
             </Link>
@@ -175,7 +195,7 @@ const Navbar = () => {
                   ? "bg-gray-50 text-bsts-navy"
                   : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
               )}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleNavClick}
             >
               Services
             </Link>
@@ -187,7 +207,7 @@ const Navbar = () => {
                   ? "bg-gray-50 text-bsts-navy"
                   : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
               )}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleNavClick}
             >
               Careers
             </Link>
@@ -199,7 +219,7 @@ const Navbar = () => {
                   ? "bg-gray-50 text-bsts-navy"
                   : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
               )}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleNavClick}
             >
               Insights
             </Link>
@@ -211,7 +231,7 @@ const Navbar = () => {
                   ? "bg-gray-50 text-bsts-navy"
                   : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
               )}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleNavClick}
             >
               Contact
             </Link>
@@ -219,7 +239,7 @@ const Navbar = () => {
               <Button asChild className="w-full bg-bsts-navy hover:bg-bsts-navy/90">
                 <Link 
                   to="/contact"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={handleNavClick}
                 >
                   Get Started
                 </Link>

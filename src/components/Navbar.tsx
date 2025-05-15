@@ -58,9 +58,9 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center" onClick={handleNavClick}>
               <img
-                src="/lovable-uploads/66e7bfb8-cbca-4da1-8857-6e685d8d2adc.png"
+                src="/lovable-uploads/4a1c8625-6155-4f34-b58d-8efc1c6840af.png"
                 alt="BSTS & Associates Logo"
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
             </Link>
           </div>

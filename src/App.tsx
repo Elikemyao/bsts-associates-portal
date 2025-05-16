@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -9,7 +10,7 @@ import Careers from '@/pages/Careers';
 import Contact from '@/pages/Contact';
 import Insights from '@/pages/Insights';
 import Accountancy from '@/pages/services/Accountancy';
-import Taxation from '@/pages/services/Taxation';
+import TaxationPlanning from '@/pages/services/TaxationPlanning';
 import Audit from '@/pages/services/Audit';
 import Software from '@/pages/services/Software';
 import Consultancy from '@/pages/services/Consultancy';
@@ -35,7 +36,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/services/accountancy" element={<Accountancy />} />
-          <Route path="/services/taxation" element={<Taxation />} />
+          <Route path="/services/taxation" element={<TaxationPlanning />} />
           <Route path="/services/audit" element={<Audit />} />
           <Route path="/services/software" element={<Software />} />
           <Route path="/services/consultancy" element={<Consultancy />} />

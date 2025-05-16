@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -26,6 +26,11 @@ const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("fa5YfL3PCRKqnCRAi");
+  }, []);
+  
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,8 +45,6 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Initialize EmailJS with your user ID (you'll need to sign up for EmailJS)
-      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with actual values from EmailJS
       const templateParams = {
         from_name: data.name,
         from_email: data.email,
@@ -51,10 +54,9 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        'service_bsts',  // Replace with your actual service ID
-        'template_bsts', // Replace with your actual template ID
-        templateParams,
-        'YOUR_USER_ID'   // Replace with your actual user ID
+        'service_zox075j',  // Your actual service ID
+        'template_8olpcu9', // Your actual template ID
+        templateParams
       );
 
       toast({

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -28,6 +28,11 @@ const JobApplicationForm = ({ position }: { position: string }) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
+  
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("fa5YfL3PCRKqnCRAi");
+  }, []);
   
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -59,10 +64,9 @@ const JobApplicationForm = ({ position }: { position: string }) => {
       };
 
       await emailjs.send(
-        'service_bsts',  // Replace with your actual service ID
-        'template_jobs', // Replace with your actual template ID for job applications
-        templateParams,
-        'YOUR_USER_ID'   // Replace with your actual user ID
+        'service_zox075j',  // Your actual service ID
+        'template_8olpcu9', // Your actual template ID for job applications
+        templateParams
       );
 
       toast({

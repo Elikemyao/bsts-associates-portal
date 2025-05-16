@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -60,7 +59,7 @@ const JobApplicationForm = ({ position }: { position: string }) => {
         position: data.position,
         coverLetter: data.coverLetter,
         fileName: fileName || 'No file uploaded',
-        to_email: 'info@bstsandassociates.com',
+        to_email: 'website@bstsandassociates.com',
       };
 
       await emailjs.send(

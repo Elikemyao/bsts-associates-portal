@@ -50,7 +50,7 @@ const Contact = () => {
         from_email: data.email,
         subject: data.subject,
         message: data.message,
-        to_email: 'info@bstsandassociates.com',
+        to_email: 'website@bstsandassociates.com',
       };
 
       await emailjs.send(

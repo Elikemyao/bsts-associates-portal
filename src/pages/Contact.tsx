@@ -1,15 +1,33 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
+import { useToast } from '@/hooks/use-toast';
+import emailjs from 'emailjs-com';
+
+// Form validation schema
+const formSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters long" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters long" }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters long" }),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 const Contact = () => {
-  const form = useForm({
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
       email: '',
@@ -18,9 +36,63 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    // Handle form submission
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Initialize EmailJS with your user ID (you'll need to sign up for EmailJS)
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with actual values from EmailJS
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject,
+        message: data.message,
+        to_email: 'info@bstsandassociates.com',
+      };
+
+      await emailjs.send(
+        'service_bsts',  // Replace with your actual service ID
+        'template_bsts', // Replace with your actual template ID
+        templateParams,
+        'YOUR_USER_ID'   // Replace with your actual user ID
+      );
+
+      toast({
+        title: "Message Sent Successfully",
+        description: "Thanks for reaching out. We'll get back to you soon!",
+      });
+
+      form.reset();
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Failed to Send Message",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const newsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const formElement = e.target as HTMLFormElement;
+    const emailInput = formElement.querySelector('input[type="email"]') as HTMLInputElement;
+    
+    if (emailInput && emailInput.value) {
+      toast({
+        title: "Newsletter Subscription Successful",
+        description: "Thank you for subscribing to our newsletter!",
+      });
+      emailInput.value = '';
+    } else {
+      toast({
+        title: "Email Required",
+        description: "Please enter your email address to subscribe.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -110,8 +182,12 @@ const Contact = () => {
                     )}
                   />
 
-                  <Button type="submit" className="w-full bg-bsts-burgundy hover:bg-bsts-burgundy/90">
-                    Send Message
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-bsts-burgundy hover:bg-bsts-burgundy/90"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Form>
@@ -174,7 +250,7 @@ const Contact = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-bsts-navy mb-4">Stay Connected</h2>
             <p className="text-gray-600 mb-8">Subscribe to our newsletter for the latest industry insights, expert tips, and company updates.</p>
             
-            <form className="max-w-md mx-auto">
+            <form onSubmit={newsletterSubmit} className="max-w-md mx-auto">
               <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="email"
@@ -182,7 +258,7 @@ const Contact = () => {
                   className="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bsts-navy"
                   required
                 />
-                <Button className="bg-bsts-burgundy hover:bg-bsts-burgundy/90">
+                <Button type="submit" className="bg-bsts-burgundy hover:bg-bsts-burgundy/90">
                   Subscribe
                 </Button>
               </div>

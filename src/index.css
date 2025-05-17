@@ -100,7 +100,7 @@
     @apply font-display font-semibold tracking-tight;
   }
 
-  /* Added this class to apply text-align: justify globally */
+  /* Modified to apply text-justify only to paragraphs and list items, not headings */
   p, li, .text-content {
     @apply text-justify;
   }

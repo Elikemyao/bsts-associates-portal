@@ -20,30 +20,32 @@ import Training from '@/pages/services/Training';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import { Toaster } from "@/components/ui/toaster"
 import WhatsAppButton from './components/WhatsAppButton';
+import PageLayout from './components/PageLayout';
 
 function App() {
-
   return (
     <div className="app">
       <Router>
         <ScrollToTopButton />
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/insights" element={<Insights />} />
-          <Route path="/services/accountancy" element={<Accountancy />} />
-          <Route path="/services/taxation" element={<TaxationPlanning />} />
-          <Route path="/services/audit" element={<Audit />} />
-          <Route path="/services/software" element={<Software />} />
-          <Route path="/services/consultancy" element={<Consultancy />} />
-          <Route path="/services/legal" element={<Legal />} />
-          <Route path="/services/recruitment" element={<Recruitment />} />
-          <Route path="/services/training" element={<Training />} />
-        </Routes>
+        <PageLayout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/insights" element={<Insights />} />
+            <Route path="/services/accountancy" element={<Accountancy />} />
+            <Route path="/services/taxation" element={<TaxationPlanning />} />
+            <Route path="/services/audit" element={<Audit />} />
+            <Route path="/services/software" element={<Software />} />
+            <Route path="/services/consultancy" element={<Consultancy />} />
+            <Route path="/services/legal" element={<Legal />} />
+            <Route path="/services/recruitment" element={<Recruitment />} />
+            <Route path="/services/training" element={<Training />} />
+          </Routes>
+        </PageLayout>
         <Footer />
         <WhatsAppButton />
         <Toaster />

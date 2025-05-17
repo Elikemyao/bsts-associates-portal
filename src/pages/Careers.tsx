@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -196,79 +197,6 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Employee Testimonials */}
-      <section className="py-16 md:py-24 bg-bsts-lightblue">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
-            title="Life at BSTS & Associates" 
-            subtitle="Hear from our team members about their experiences working with us."
-            centered={true}
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {/* Testimonial 1 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80" 
-                    alt="John Smith" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-bsts-navy">John Smith</h4>
-                  <p className="text-sm text-gray-600">Senior Accountant</p>
-                </div>
-              </div>
-              <p className="italic text-gray-600 mb-4">
-                "Working at BSTS & Associates has been incredibly rewarding. The collaborative environment, growth opportunities, and supportive leadership have helped me develop both professionally and personally."
-              </p>
-            </div>
-            
-            {/* Testimonial 2 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80" 
-                    alt="Sarah Johnson" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-bsts-navy">Sarah Johnson</h4>
-                  <p className="text-sm text-gray-600">Tax Consultant</p>
-                </div>
-              </div>
-              <p className="italic text-gray-600 mb-4">
-                "The learning opportunities at BSTS & Associates are exceptional. I've been able to work on diverse projects with industry experts, which has significantly accelerated my career growth."
-              </p>
-            </div>
-            
-            {/* Testimonial 3 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80" 
-                    alt="Michael Chen" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-bsts-navy">Michael Chen</h4>
-                  <p className="text-sm text-gray-600">Business Consultant</p>
-                </div>
-              </div>
-              <p className="italic text-gray-600 mb-4">
-                "What stands out at BSTS & Associates is the commitment to work-life balance and employee well-being. It's a place where you can build a successful career while maintaining a fulfilling personal life."
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <CTASection
         title="Ready to Join Our Team?"
@@ -293,3 +221,4 @@ const Careers = () => {
 };
 
 export default Careers;
+

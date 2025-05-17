@@ -36,16 +36,16 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           <img 
             src={backgroundImage}
             alt="Header background" 
-            className="w-full h-full object-cover object-center animate-zoom-out opacity-30"
+            className="w-full h-full object-cover object-center animate-backgroundZoom opacity-30"
           />
         </div>
       )}
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl invisible animate-fadeInUp" style={{animationDelay: '100ms', animationFillMode: 'forwards'}}>
           <h1 className="hero-title mb-6">{title}</h1>
           {subtitle && (
-            <p className="text-xl text-gray-200 leading-relaxed">
+            <p className="text-xl text-gray-200 leading-relaxed invisible animate-fadeInUp" style={{animationDelay: '300ms', animationFillMode: 'forwards'}}>
               {subtitle}
             </p>
           )}

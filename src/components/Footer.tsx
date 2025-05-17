@@ -1,13 +1,43 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
+  // Intersection Observer for scroll animations
+  const footerRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1, // Trigger when at least 10% of the element is visible
+      }
+    );
+    
+    if (footerRef.current) {
+      observer.observe(footerRef.current);
+    }
+    
+    return () => {
+      if (footerRef.current) {
+        observer.unobserve(footerRef.current);
+      }
+    };
+  }, []);
+  
   return (
-    <footer className="bg-bsts-navy text-white relative">
+    <footer ref={footerRef} className={`bg-bsts-navy text-white relative ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
       {/* Top wave divider */}
       <div className="absolute top-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 48" className="w-full h-12 -mt-12 text-background" fill="currentColor" preserveAspectRatio="none">
@@ -18,9 +48,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
-          <div className="space-y-4">
+          <div className={`space-y-4 ${isVisible ? 'animate-fadeInUp' : 'invisible'}`} style={{animationDelay: '100ms'}}>
             <h3 className="text-xl font-semibold mb-4 border-b border-white/20 pb-2">BSTS & Associates</h3>
-            <Link to="/" className="flex items-center mb-4">
+            <Link to="/" className="flex items-center mb-4 transition-transform duration-300 hover:scale-105">
               <img
                 src="/lovable-uploads/66e7bfb8-cbca-4da1-8857-6e685d8d2adc.png"
                 alt="BSTS & Associates Logo"
@@ -33,12 +63,12 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className={`${isVisible ? 'animate-fadeInUp' : 'invisible'}`} style={{animationDelay: '200ms'}}>
             <h3 className="text-xl font-semibold mb-4 border-b border-white/20 pb-2">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                  <ChevronRight className="w-4 h-4 mr-1 transform group-hover:translate-x-1 transition-transform" />
+                <Link to="/" className="text-gray-300 hover:text-white transition-colors duration-300 inline-flex items-center group">
+                  <ChevronRight className="w-4 h-4 mr-1 transform group-hover:translate-x-1 transition-transform duration-300" />
                   <span>Home</span>
                 </Link>
               </li>
@@ -76,12 +106,12 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className={`${isVisible ? 'animate-fadeInUp' : 'invisible'}`} style={{animationDelay: '300ms'}}>
             <h3 className="text-xl font-semibold mb-4 border-b border-white/20 pb-2">Our Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/services/accountancy" className="text-gray-300 hover:text-white transition-colors inline-flex items-center group">
-                  <ChevronRight className="w-4 h-4 mr-1 transform group-hover:translate-x-1 transition-transform" />
+                <Link to="/services/accountancy" className="text-gray-300 hover:text-white transition-colors duration-300 inline-flex items-center group">
+                  <ChevronRight className="w-4 h-4 mr-1 transform group-hover:translate-x-1 transition-transform duration-300" />
                   <span>Accountancy</span>
                 </Link>
               </li>
@@ -119,7 +149,7 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className={`${isVisible ? 'animate-fadeInUp' : 'invisible'}`} style={{animationDelay: '400ms'}}>
             <h3 className="text-xl font-semibold mb-4 border-b border-white/20 pb-2">Contact Us</h3>
             <address className="not-italic text-gray-300 space-y-4">
               <p className="flex items-start">
@@ -132,13 +162,13 @@ const Footer = () => {
               </p>
               <p className="flex items-center">
                 <Mail className="w-5 h-5 mr-2 text-gray-400" />
-                <a href="mailto:info@bstsandassociates.com" className="hover:text-white transition-colors">
+                <a href="mailto:info@bstsandassociates.com" className="hover:text-white transition-colors duration-300">
                   info@bstsandassociates.com
                 </a>
               </p>
               <p className="flex items-center">
                 <Phone className="w-5 h-5 mr-2 text-gray-400" />
-                <a href="tel:+233542657948" className="hover:text-white transition-colors">
+                <a href="tel:+233542657948" className="hover:text-white transition-colors duration-300">
                   +233 (0) 54 265 7948
                 </a>
               </p>
@@ -151,10 +181,10 @@ const Footer = () => {
             <p>© {currentYear} BSTS & Associates. All rights reserved.</p>
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+            <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+            <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm">
               Terms of Service
             </a>
           </div>

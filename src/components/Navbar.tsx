@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -8,9 +7,10 @@ import { cn } from "@/lib/utils";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
   
-  // Handle scroll effect
+  // Handle scroll effect and animation
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -21,7 +21,16 @@ const Navbar = () => {
     };
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    // Set the navbar to visible with a slight delay for animation
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, []);
 
   // Scroll to top when route changes
@@ -50,13 +59,15 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "sticky top-0 z-50 transition-all duration-300",
-      isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-white"
+      isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm py-2" : "bg-white py-4",
+      isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4",
+      "transition-all duration-500"
     )}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center" onClick={handleNavClick}>
+            <Link to="/" className="flex items-center transition-transform duration-300 hover:scale-105" onClick={handleNavClick}>
               <img
                 src="/lovable-uploads/4a1c8625-6155-4f34-b58d-8efc1c6840af.png"
                 alt="BSTS & Associates Logo"
@@ -71,9 +82,9 @@ const Navbar = () => {
               <Link 
                 to="/" 
                 className={cn(
-                  "px-3 py-2 font-medium text-sm rounded-md transition-colors",
+                  "px-3 py-2 font-medium text-sm rounded-md transition-all duration-300",
                   isActive('/') 
-                    ? "text-bsts-navy font-semibold" 
+                    ? "text-bsts-navy font-semibold relative after:content-[''] after:absolute after:bottom-0 after:left-1/4 after:w-1/2 after:h-0.5 after:bg-bsts-navy" 
                     : "text-gray-600 hover:text-bsts-navy hover:bg-gray-50"
                 )}
                 onClick={handleNavClick}
@@ -140,7 +151,11 @@ const Navbar = () => {
               >
                 Contact
               </Link>
-              <Button asChild size="sm" className="bg-bsts-navy hover:bg-bsts-navy/90 ml-3">
+              <Button 
+                asChild 
+                size="sm" 
+                className="bg-bsts-navy hover:bg-bsts-navy/90 ml-3 transition-transform duration-300 hover:scale-105"
+              >
                 <Link to="/contact" onClick={handleNavClick}>Get Started</Link>
               </Button>
             </div>
@@ -150,7 +165,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className="text-gray-700 hover:text-bsts-navy focus:outline-none"
+              className="text-gray-700 hover:text-bsts-navy focus:outline-none transition-transform duration-300 hover:scale-110"
               onClick={toggleMenu}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -161,12 +176,12 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg absolute w-full left-0 right-0 z-50 animate-fade-in">
+        <div className="md:hidden bg-white shadow-lg absolute w-full left-0 right-0 z-50 animate-fadeIn">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link 
               to="/" 
               className={cn(
-                "block px-3 py-2 rounded-md text-sm font-medium",
+                "block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300",
                 isActive('/') 
                   ? "bg-gray-50 text-bsts-navy"
                   : "text-gray-700 hover:bg-gray-50 hover:text-bsts-navy"
@@ -236,7 +251,10 @@ const Navbar = () => {
               Contact
             </Link>
             <div className="pt-2">
-              <Button asChild className="w-full bg-bsts-navy hover:bg-bsts-navy/90">
+              <Button 
+                asChild 
+                className="w-full bg-bsts-navy hover:bg-bsts-navy/90 transition-transform duration-300 hover:scale-105"
+              >
                 <Link 
                   to="/contact"
                   onClick={handleNavClick}

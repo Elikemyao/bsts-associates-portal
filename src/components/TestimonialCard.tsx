@@ -8,6 +8,7 @@ interface TestimonialCardProps {
   role?: string;
   company?: string;
   className?: string;
+  animationDelay?: number;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ 
@@ -15,12 +16,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   author, 
   role, 
   company,
-  className = ""
+  className = "",
+  animationDelay = 0
 }) => {
   return (
-    <Card className={`h-full card-hover ${className}`}>
+    <Card className={`h-full transform transition-all duration-500 hover:shadow-lg hover:-translate-y-2 ${className} invisible animate-fadeInUp`}
+      style={{ animationDelay: `${animationDelay}ms`, animationFillMode: 'forwards' }}>
       <CardContent className="pt-6">
-        <div className="text-3xl text-bsts-gold mb-4">"</div>
+        <div className="text-3xl text-bsts-gold mb-4 transition-all duration-300 transform hover:scale-110">"</div>
         <p className="italic text-gray-700 mb-4">{quote}</p>
       </CardContent>
       <CardFooter className="flex flex-col items-start">

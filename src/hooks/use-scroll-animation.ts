@@ -40,10 +40,21 @@ export function useScrollAnimation() {
     });
   };
 
+  // Add a simple function to determine if an element is in the viewport
+  const isInViewport = (element: HTMLElement, offset = 0) => {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top + offset <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  };
+
   return {
     scrollY,
     scrollDirection,
     isScrolled,
-    scrollToTop
+    scrollToTop,
+    isInViewport
   };
 }

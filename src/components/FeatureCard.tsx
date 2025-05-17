@@ -14,6 +14,7 @@ interface FeatureCardProps {
   linkText?: string;
   className?: string;
   accent?: boolean;
+  animationDelay?: number;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ 
@@ -23,18 +24,21 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   link, 
   linkText = "Learn More", 
   className = "",
-  accent = false
+  accent = false,
+  animationDelay = 0,
 }) => {
   return (
     <Card className={cn(
-      "h-full transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 overflow-hidden",
+      "h-full transform transition-all duration-500 hover:shadow-lg hover:-translate-y-2 overflow-hidden hover:border-bsts-burgundy/30",
       accent && "border-t-4 border-t-bsts-burgundy/80",
-      className
-    )}>
+      className,
+      "invisible animate-fadeInUp"
+    )}
+    style={{ animationDelay: `${animationDelay}ms`, animationFillMode: 'forwards' }}>
       <CardHeader>
         {icon && (
           <div className="text-bsts-burgundy mb-4 flex items-center justify-center md:justify-start">
-            <div className="bg-bsts-burgundy/10 p-3 rounded-lg">
+            <div className="bg-bsts-burgundy/10 p-3 rounded-lg transition-all duration-300 hover:bg-bsts-burgundy/20">
               {icon}
             </div>
           </div>
@@ -47,9 +51,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       {link && (
         <CardFooter>
           <Button asChild variant="link" className="p-0 text-bsts-burgundy hover:text-bsts-burgundy/90 group">
-            <Link to={link} className="flex items-center">
-              {linkText}
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <Link to={link} className="flex items-center overflow-hidden">
+              <span>{linkText}</span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>
         </CardFooter>

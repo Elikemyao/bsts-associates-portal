@@ -32,6 +32,9 @@ const About = () => {
               <p className="text-gray-600 mb-6">
                 At BSTS & Associates, as locally based accountants, we pride ourselves on our professional, friendly and timely approach. We can help you save money, minimize your tax bill and give you back time to focus on the important job of growing your business.
               </p>
+              <p className="text-gray-500 text-sm mb-6 italic">
+                With over 15 years of experience, our team has helped hundreds of businesses across Ghana succeed.
+              </p>
               <div className="mt-8">
                 <Button asChild className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 transition-all duration-300 hover:scale-105">
                   <Link to="/contact">Contact Us Today</Link>
@@ -86,6 +89,9 @@ const About = () => {
                     <p className="mt-6 text-gray-600">
                       As a business targeted towards small and medium sized businesses, we are able to provide a very personal service. You will talk to the same person who will gain a better understanding of your business and give you tailored advice.
                     </p>
+                    <p className="text-gray-500 text-sm italic mt-4">
+                      *Our commitment to accessibility means you'll never be left without support when you need it most.
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -109,6 +115,9 @@ const About = () => {
                     <p className="text-gray-600">
                       We can help you minimize your business and personal tax bills, making the most of reliefs and allowances and avoiding the penalty pitfalls of missed deadlines.
                     </p>
+                    <p className="text-gray-500 text-sm italic mt-4">
+                      *All services are designed with your specific business needs in mind, ensuring maximum value.
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -126,6 +135,7 @@ const About = () => {
                 title="Who We Are" 
                 subtitle="ABOUT BSTS & ASSOCIATES (CHARTERED ACCOUNTANTS)"
               />
+              <span className="text-sm text-gray-500 block mb-4">Est. 2008 • Accra, Ghana</span>
               <p className="text-gray-600 mb-6">
                 BSTS is a consulting firm with focus on providing accessible financial planning with financial solutions (accountancy, assurance, taxation and business advisory services) to profit and non-profit enterprising entities. BSTS is a registered accounting practicing firm licensed by the Institute of Chartered Accountants (Ghana).
               </p>
@@ -175,6 +185,7 @@ const About = () => {
                   <p className="text-gray-600 mt-auto">
                     Professional integrity is the foundation of our firm, defined and reinforced through our commitment and adherence to our core values.
                   </p>
+                  <span className="text-gray-500 text-sm italic mt-4">Established with a commitment to excellence since 2008</span>
                 </div>
               </CardContent>
             </Card>
@@ -192,6 +203,7 @@ const About = () => {
                   <p className="text-gray-600 mt-4">
                     This will be accomplished by creating a culture of pride and passion that will enable us to continue attracting and retaining the best and brightest professionals, who will be rewarded, recognized and respected for their contribution to a firm that is founded on shared core values.
                   </p>
+                  <span className="text-gray-500 text-sm italic mt-4">Guiding our growth and development into the future</span>
                 </div>
               </CardContent>
             </Card>
@@ -202,22 +214,30 @@ const About = () => {
       {/* Stats Section */}
       <section className="py-16 md:py-24 bg-bsts-navy text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2">Our Impact in Numbers</h2>
+            <p className="text-gray-300">The results of our dedication to excellence</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div className="animation-on-scroll transform transition-all hover:scale-105 duration-300">
               <div className="text-5xl font-bold text-bsts-gold mb-2">15+</div>
               <p className="text-xl text-gray-300">Years in Business</p>
+              <span className="text-gray-400 text-sm block mt-1">Established 2008</span>
             </div>
             <div className="animation-on-scroll transform transition-all hover:scale-105 duration-300" style={{animationDelay: '100ms'}}>
               <div className="text-5xl font-bold text-bsts-gold mb-2">500+</div>
               <p className="text-xl text-gray-300">Happy Clients</p>
+              <span className="text-gray-400 text-sm block mt-1">Across various sectors</span>
             </div>
             <div className="animation-on-scroll transform transition-all hover:scale-105 duration-300" style={{animationDelay: '200ms'}}>
               <div className="text-5xl font-bold text-bsts-gold mb-2">30+</div>
               <p className="text-xl text-gray-300">Industry Experts</p>
+              <span className="text-gray-400 text-sm block mt-1">Dedicated professionals</span>
             </div>
             <div className="animation-on-scroll transform transition-all hover:scale-105 duration-300" style={{animationDelay: '300ms'}}>
               <div className="text-5xl font-bold text-bsts-gold mb-2">10+</div>
               <p className="text-xl text-gray-300">Industry Awards</p>
+              <span className="text-gray-400 text-sm block mt-1">Recognition of excellence</span>
             </div>
           </div>
         </div>

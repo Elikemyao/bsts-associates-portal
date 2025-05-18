@@ -27,6 +27,10 @@ const Services = () => {
             centered={true}
           />
           
+          <span className="text-gray-500 text-sm block text-center mb-8">
+            Tailored professional services for businesses of all sizes
+          </span>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {/* Accountancy */}
             <div className="animation-on-scroll">
@@ -62,6 +66,9 @@ const Services = () => {
                 description="Expert guidance on selecting, implementing, and optimizing business software solutions to improve efficiency."
                 link="/services/software"
               />
+              <div className="mt-2 px-4">
+                <span className="text-gray-500 text-sm italic">Modern solutions for modern businesses</span>
+              </div>
             </div>
             
             {/* Consultancy */}
@@ -71,6 +78,9 @@ const Services = () => {
                 description="Strategic business consultancy to help you plan, grow, and overcome challenges effectively."
                 link="/services/consultancy"
               />
+              <div className="mt-2 px-4">
+                <span className="text-gray-500 text-sm italic">Expert guidance when you need it most</span>
+              </div>
             </div>
             
             {/* Legal Compliance */}
@@ -80,6 +90,9 @@ const Services = () => {
                 description="Comprehensive legal compliance services to ensure your business operations meet all regulatory requirements."
                 link="/services/legal"
               />
+              <div className="mt-2 px-4">
+                <span className="text-gray-500 text-sm italic">Stay compliant with changing regulations</span>
+              </div>
             </div>
             
             {/* Recruitment */}
@@ -106,6 +119,9 @@ const Services = () => {
               <p className="text-gray-600 mb-6">
                 We understand that every business is unique. Contact us for a tailored solution that meets your specific needs.
               </p>
+              <span className="text-gray-500 text-sm italic mb-4 block">
+                Personalized consulting for your unique challenges
+              </span>
               <Button asChild className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 transition-transform duration-300 hover:scale-105">
                 <Link to="/contact">Contact Us</Link>
               </Button>
@@ -132,6 +148,7 @@ const Services = () => {
                     <p className="text-gray-600">
                       Our team brings decades of specialized experience across multiple industries, ensuring informed guidance and solutions.
                     </p>
+                    <span className="text-gray-500 text-sm italic block mt-2">15+ years of industry leadership</span>
                   </div>
                 </div>
                 
@@ -142,6 +159,7 @@ const Services = () => {
                     <p className="text-gray-600">
                       We develop tailored solutions that address your unique challenges and align with your specific goals.
                     </p>
+                    <span className="text-gray-500 text-sm italic block mt-2">Customized service for each client</span>
                   </div>
                 </div>
                 
@@ -152,6 +170,7 @@ const Services = () => {
                     <p className="text-gray-600">
                       Our diverse range of services allows us to address all your business needs under one roof, providing integrated solutions.
                     </p>
+                    <span className="text-gray-500 text-sm italic block mt-2">One-stop shop for all business services</span>
                   </div>
                 </div>
                 
@@ -162,6 +181,7 @@ const Services = () => {
                     <p className="text-gray-600">
                       We prioritize building long-term relationships based on trust, communication, and a deep understanding of your needs.
                     </p>
+                    <span className="text-gray-500 text-sm italic block mt-2">Your success is our success</span>
                   </div>
                 </div>
               </div>
@@ -173,6 +193,9 @@ const Services = () => {
                 alt="BSTS & Associates Services" 
                 className="w-full h-auto transition-transform duration-700 hover:scale-105"
               />
+              <div className="p-4 bg-white text-center">
+                <span className="text-gray-500 text-sm italic">Our dedicated team of professionals</span>
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,6 +11,8 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from 'emailjs-com';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import PageLayout from '@/components/PageLayout';
 
 // Form validation schema
 const formSchema = z.object({
@@ -25,10 +27,35 @@ type FormValues = z.infer<typeof formSchema>;
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLDivElement>(null);
+  const [isFormVisible, setIsFormVisible] = useState(false);
   
   // Initialize EmailJS
   useEffect(() => {
     emailjs.init("fa5YfL3PCRKqnCRAi");
+  }, []);
+
+  // Scroll animation for form
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsFormVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (formRef.current) {
+      observer.observe(formRef.current);
+    }
+    
+    return () => {
+      if (formRef.current) {
+        observer.unobserve(formRef.current);
+      }
+    };
   }, []);
   
   const form = useForm<FormValues>({
@@ -98,11 +125,20 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <PageLayout>
       {/* Header Section */}
-      <section className="bg-bsts-navy text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+      <section className="bg-bsts-navy text-white py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <AspectRatio ratio={21/9}>
+            <img 
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFmcmljYW4lMjBidXNpbmVzcyUyMHRlYW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=80&w=2000"
+              alt="Business team meeting"
+              className="object-cover w-full h-full"
+            />
+          </AspectRatio>
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl animation-on-scroll">
             <h1 className="hero-title mb-6">Contact Us</h1>
             <p className="text-xl text-gray-200">
               We're here to answer your questions and help your business succeed. Reach out to our team of experts today.
@@ -116,7 +152,10 @@ const Contact = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div>
+            <div 
+              ref={formRef}
+              className={`transform transition-all duration-700 ${isFormVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            >
               <SectionHeading 
                 title="Get in Touch" 
                 subtitle="Fill out the form below and one of our experts will get back to you shortly."
@@ -186,7 +225,7 @@ const Contact = () => {
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-bsts-burgundy hover:bg-bsts-burgundy/90"
+                    className="w-full bg-bsts-burgundy hover:bg-bsts-burgundy/90 transition-transform hover:scale-105 duration-300"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
@@ -195,14 +234,24 @@ const Contact = () => {
               </Form>
             </div>
             
-            {/* Contact Information */}
-            <div>
+            {/* Contact Information with Map */}
+            <div className="space-y-8">
               <SectionHeading 
                 title="Contact Information" 
                 subtitle="Here's how you can reach us and visit our offices."
               />
               
-              <div className="mt-8 space-y-8">
+              <div className="rounded-lg overflow-hidden shadow-lg mb-8 animation-on-scroll">
+                <AspectRatio ratio={16/9}>
+                  <img 
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8b2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=80&w=800"
+                    alt="BSTS Office Building"
+                    className="object-cover w-full h-full"
+                  />
+                </AspectRatio>
+              </div>
+              
+              <div className="mt-8 space-y-8 animation-on-scroll">
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-bsts-navy shrink-0 mt-1" />
                   <div>
@@ -246,9 +295,18 @@ const Contact = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 md:py-20 bg-bsts-lightblue">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+      <section className="py-16 md:py-20 bg-bsts-lightblue relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10">
+          <AspectRatio ratio={21/9}>
+            <img 
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzaW5lc3MlMjBhYnN0cmFjdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=80&w=2000"
+              alt="Abstract business pattern"
+              className="object-cover w-full h-full"
+            />
+          </AspectRatio>
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto text-center animation-on-scroll">
             <h2 className="text-3xl md:text-4xl font-bold text-bsts-navy mb-4">Stay Connected</h2>
             <p className="text-gray-600 mb-8">Subscribe to our newsletter for the latest industry insights, expert tips, and company updates.</p>
             
@@ -260,7 +318,10 @@ const Contact = () => {
                   className="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-bsts-navy"
                   required
                 />
-                <Button type="submit" className="bg-bsts-burgundy hover:bg-bsts-burgundy/90">
+                <Button 
+                  type="submit" 
+                  className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 transition-transform hover:scale-105 duration-300"
+                >
                   Subscribe
                 </Button>
               </div>
@@ -269,7 +330,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageLayout>
   );
 };
 

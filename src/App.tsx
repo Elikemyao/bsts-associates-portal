@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Home from '@/pages/Home';
@@ -20,11 +20,24 @@ import Training from '@/pages/services/Training';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import { Toaster } from "@/components/ui/toaster"
 import WhatsAppButton from './components/WhatsAppButton';
+import BlogPost from '@/pages/BlogPost';
+
+// ScrollToTop component to handle scrolling to top when route changes
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
   return (
     <div className="app">
       <Router>
+        <ScrollToTop />
         <ScrollToTopButton />
         <Navbar />
         <Routes>
@@ -34,6 +47,7 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/insights" element={<Insights />} />
+          <Route path="/insights/blog-post" element={<BlogPost />} />
           <Route path="/services/accountancy" element={<Accountancy />} />
           <Route path="/services/taxation" element={<TaxationPlanning />} />
           <Route path="/services/audit" element={<Audit />} />

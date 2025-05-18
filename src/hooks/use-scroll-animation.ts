@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
 type ScrollDirection = 'up' | 'down' | null;
 
@@ -7,7 +7,10 @@ export function useScrollAnimation() {
   const [scrollY, setScrollY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState<ScrollDirection>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const elementsRef = useRef<Map<Element, string>>(new Map());
 
+  // Handle scroll events
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -33,6 +36,52 @@ export function useScrollAnimation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Initialize animation observer
+  useEffect(() => {
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const element = entry.target;
+              const className = elementsRef.current.get(element);
+              
+              if (className) {
+                element.classList.add(className);
+              }
+              
+              // Once the animation is applied, we no longer need to observe this element
+              observerRef.current?.unobserve(element);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+    }
+    
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  // Register elements for animation
+  const registerAnimation = useCallback((element: Element, className: string) => {
+    if (element && observerRef.current) {
+      elementsRef.current.set(element, className);
+      observerRef.current.observe(element);
+    }
+    
+    return () => {
+      if (element && observerRef.current) {
+        observerRef.current.unobserve(element);
+        elementsRef.current.delete(element);
+      }
+    };
+  }, []);
+
+  // Scroll to top function
   const scrollToTop = (smooth = true) => {
     window.scrollTo({
       top: 0,
@@ -40,8 +89,8 @@ export function useScrollAnimation() {
     });
   };
 
-  // Add a simple function to determine if an element is in the viewport
-  const isInViewport = (element: HTMLElement, offset = 0) => {
+  // Check if element is in viewport
+  const isInViewport = (element: HTMLElement | null, offset = 0) => {
     if (!element) return false;
     const rect = element.getBoundingClientRect();
     return (
@@ -55,6 +104,7 @@ export function useScrollAnimation() {
     scrollDirection,
     isScrolled,
     scrollToTop,
-    isInViewport
+    isInViewport,
+    registerAnimation
   };
 }

@@ -79,6 +79,7 @@
   }
 }
 
+/* Standard animation classes */
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -103,6 +104,19 @@
   animation: backgroundZoom 10s ease-out forwards;
 }
 
+/* Scroll-triggered animations */
+.animation-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animation-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation delays */
 .delay-100 {
   animation-delay: 100ms;
 }
@@ -127,6 +141,7 @@
   opacity: 0;
 }
 
+/* Transitions */
 .transition-all {
   transition: all 0.3s ease;
 }
@@ -148,9 +163,41 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+/* Improved hero title for consistent styling */
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+/* Responsive image effects */
+.image-hover-zoom {
+  overflow: hidden;
+}
+
+.image-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.image-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .logo-spin {
     animation: logo-spin infinite 20s linear;
   }
 }
-

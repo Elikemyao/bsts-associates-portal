@@ -29,6 +29,10 @@ const Index = () => {
           Our team of experienced professionals is committed to delivering exceptional service and tailored solutions to meet the unique needs of our clients. We pride ourselves on our expertise, integrity, and dedication to helping businesses of all sizes achieve their goals.
         </p>
         
+        <span className="text-gray-500 text-sm italic block mb-8">
+          Over 15 years of excellence in professional services
+        </span>
+        
         <Button asChild size="lg" className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 group transition-transform duration-300 hover:scale-105">
           <Link to="/about" className="flex items-center">
             Learn More About Us

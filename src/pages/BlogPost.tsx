@@ -4,13 +4,23 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SectionHeading from '@/components/SectionHeading';
 import PageLayout from '@/components/PageLayout';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const BlogPost = () => {
   return (
     <PageLayout>
       {/* Header Section */}
-      <section className="bg-bsts-navy text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-bsts-navy text-white py-16 relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <AspectRatio ratio={21/9}>
+            <img 
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=2000&q=80" 
+              alt="Tax Planning Background"
+              className="object-cover w-full h-full"
+            />
+          </AspectRatio>
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl animation-on-scroll">
             <div className="mb-4">
               <Link to="/insights" className="text-gray-300 hover:text-white flex items-center gap-2 transition-colors">
@@ -28,6 +38,9 @@ const BlogPost = () => {
               <span>•</span>
               <span>By Sarah Johnson</span>
             </div>
+            <span className="text-gray-400 text-sm italic block mt-4">
+              8 min read • Essential strategies for business owners
+            </span>
           </div>
         </div>
       </section>
@@ -134,6 +147,9 @@ const BlogPost = () => {
                 <div>
                   <h4 className="font-semibold text-bsts-navy">Sarah Johnson</h4>
                   <p className="text-gray-600">Head of Tax Services at BSTS & Associates with over 15 years of experience in tax planning and compliance for small and medium-sized businesses.</p>
+                  <span className="text-gray-500 text-sm italic block mt-1">
+                    Certified Tax Expert • ACCA Fellow
+                  </span>
                 </div>
               </div>
             </div>
@@ -150,6 +166,9 @@ const BlogPost = () => {
                   <p className="text-gray-600 mb-2">
                     Discover common tax deductions that small businesses frequently miss and how to properly claim them.
                   </p>
+                  <span className="text-gray-500 text-sm italic block mb-3">
+                    5 min read • Tax Planning
+                  </span>
                   <Button asChild variant="link" className="p-0 text-bsts-burgundy hover:text-bsts-burgundy/90">
                     <Link to="/insights/blog-post" className="group flex items-center">
                       Read More 
@@ -168,6 +187,9 @@ const BlogPost = () => {
                   <p className="text-gray-600 mb-2">
                     Stay updated on the latest regulatory changes and learn how to ensure your business remains compliant.
                   </p>
+                  <span className="text-gray-500 text-sm italic block mb-3">
+                    7 min read • Compliance
+                  </span>
                   <Button asChild variant="link" className="p-0 text-bsts-burgundy hover:text-bsts-burgundy/90">
                     <Link to="/insights/blog-post" className="group flex items-center">
                       Read More
@@ -191,6 +213,9 @@ const BlogPost = () => {
             <p className="text-gray-600 mb-8">
               Our team of tax experts can help your business develop and implement effective tax planning strategies tailored to your specific needs.
             </p>
+            <span className="text-gray-500 text-sm italic block mb-8">
+              Schedule a consultation today for personalized advice
+            </span>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 transition-transform duration-300 hover:scale-105">
                 <Link to="/contact">Contact Us</Link>

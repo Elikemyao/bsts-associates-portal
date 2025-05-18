@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
@@ -27,14 +27,42 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   accent = false,
   animationDelay = 0,
 }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+    
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+  
   return (
-    <Card className={cn(
-      "h-full transform transition-all duration-500 hover:shadow-lg hover:-translate-y-2 overflow-hidden hover:border-bsts-burgundy/30",
-      accent && "border-t-4 border-t-bsts-burgundy/80",
-      className,
-      "invisible animate-fadeInUp"
-    )}
-    style={{ animationDelay: `${animationDelay}ms`, animationFillMode: 'forwards' }}>
+    <Card 
+      ref={cardRef}
+      className={cn(
+        "h-full transform transition-all duration-500 hover:shadow-lg hover:-translate-y-2 overflow-hidden hover:border-bsts-burgundy/30",
+        accent && "border-t-4 border-t-bsts-burgundy/80",
+        className,
+        isVisible ? "animate-fadeInUp" : "opacity-0"
+      )}
+      style={{ animationDelay: `${animationDelay}ms`, animationFillMode: 'forwards' }}
+    >
       <CardHeader>
         {icon && (
           <div className="text-bsts-burgundy mb-4 flex items-center justify-center md:justify-start">

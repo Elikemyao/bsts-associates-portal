@@ -1,19 +1,51 @@
 
 import React from 'react';
+import PageLayout from '@/components/PageLayout';
+import PageHeader from '@/components/PageHeader';
+import SectionHeading from '@/components/SectionHeading';
+import ContentSection from '@/components/ContentSection';
+import CTASection from '@/components/CTASection';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center max-w-2xl mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">
-          Start building your amazing project here! The content on this page is automatically justified 
-          for better readability and professional appearance. Justified text creates even edges on 
-          both sides, giving your content a clean and organized look appropriate for professional 
-          business websites.
+    <PageLayout>
+      <PageHeader 
+        title="Welcome to BSTS & Associates"
+        subtitle="Professional business services that empower organizations to achieve operational excellence and sustainable growth."
+        backgroundImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80"
+      />
+      
+      <ContentSection>
+        <SectionHeading 
+          title="About Our Company" 
+          subtitle="BSTS & Associates is a leading business consulting and accounting firm based in Ghana, providing a wide range of professional services."
+          animationDelay={100}
+        />
+        
+        <p className="text-gray-600 mb-6">
+          Our team of experienced professionals is committed to delivering exceptional service and tailored solutions to meet the unique needs of our clients. We pride ourselves on our expertise, integrity, and dedication to helping businesses of all sizes achieve their goals.
         </p>
-      </div>
-    </div>
+        
+        <Button asChild size="lg" className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 group transition-transform duration-300 hover:scale-105">
+          <Link to="/about" className="flex items-center">
+            Learn More About Us
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </Button>
+      </ContentSection>
+      
+      <CTASection
+        title="Ready to transform your business?"
+        description="Get in touch with our team today to discover how our services can help you achieve your business goals."
+        primaryButtonText="Contact Us"
+        primaryButtonLink="/contact"
+        secondaryButtonText="Explore Services"
+        secondaryButtonLink="/services"
+      />
+    </PageLayout>
   );
 };
 

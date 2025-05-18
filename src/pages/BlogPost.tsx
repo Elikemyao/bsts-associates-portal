@@ -3,16 +3,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SectionHeading from '@/components/SectionHeading';
+import PageLayout from '@/components/PageLayout';
 
 const BlogPost = () => {
   return (
-    <div>
+    <PageLayout>
       {/* Header Section */}
       <section className="bg-bsts-navy text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl animation-on-scroll">
             <div className="mb-4">
-              <Link to="/insights" className="text-gray-300 hover:text-white flex items-center gap-2">
+              <Link to="/insights" className="text-gray-300 hover:text-white flex items-center gap-2 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M19 12H5M12 19l-7-7 7-7"/>
                 </svg>
@@ -34,11 +35,11 @@ const BlogPost = () => {
       {/* Featured Image */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
         <div className="max-w-4xl mx-auto">
-          <div className="rounded-lg overflow-hidden shadow-xl">
+          <div className="rounded-lg overflow-hidden shadow-xl animation-on-scroll transform transition-all hover:scale-[1.02] duration-500">
             <img 
               src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&h=600&q=80" 
               alt="Tax Planning Strategies" 
-              className="w-full h-auto"
+              className="w-full h-auto transition-transform duration-700 hover:scale-105"
             />
           </div>
         </div>
@@ -48,7 +49,7 @@ const BlogPost = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none animation-on-scroll">
               <p>
                 For small business owners, effective tax planning is not just about compliance—it's a strategic approach that can significantly impact your bottom line. By understanding and leveraging available tax strategies, small businesses can minimize their tax burden while ensuring full compliance with regulations.
               </p>
@@ -120,14 +121,14 @@ const BlogPost = () => {
               </p>
             </div>
             
-            <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="mt-12 pt-8 border-t border-gray-200 animation-on-scroll">
               <h3 className="text-xl font-semibold mb-4 text-bsts-navy">About the Author</h3>
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80" 
                     alt="Sarah Johnson" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                 </div>
                 <div>
@@ -137,10 +138,10 @@ const BlogPost = () => {
               </div>
             </div>
             
-            <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="mt-12 pt-8 border-t border-gray-200 animation-on-scroll">
               <h3 className="text-xl font-semibold mb-4 text-bsts-navy">Related Articles</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
+                <div className="transition-all duration-300 hover:translate-y-[-5px]">
                   <h4 className="text-lg font-medium mb-2 text-bsts-navy">
                     <Link to="/insights/blog-post" className="hover:text-bsts-burgundy transition-colors">
                       Tax Deductions Often Overlooked by Small Businesses
@@ -150,10 +151,15 @@ const BlogPost = () => {
                     Discover common tax deductions that small businesses frequently miss and how to properly claim them.
                   </p>
                   <Button asChild variant="link" className="p-0 text-bsts-burgundy hover:text-bsts-burgundy/90">
-                    <Link to="/insights/blog-post">Read More</Link>
+                    <Link to="/insights/blog-post" className="group flex items-center">
+                      Read More 
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </Link>
                   </Button>
                 </div>
-                <div>
+                <div className="transition-all duration-300 hover:translate-y-[-5px]">
                   <h4 className="text-lg font-medium mb-2 text-bsts-navy">
                     <Link to="/insights/blog-post" className="hover:text-bsts-burgundy transition-colors">
                       Navigating Regulatory Changes in 2023: What Businesses Need to Know
@@ -163,7 +169,12 @@ const BlogPost = () => {
                     Stay updated on the latest regulatory changes and learn how to ensure your business remains compliant.
                   </p>
                   <Button asChild variant="link" className="p-0 text-bsts-burgundy hover:text-bsts-burgundy/90">
-                    <Link to="/insights/blog-post">Read More</Link>
+                    <Link to="/insights/blog-post" className="group flex items-center">
+                      Read More
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -175,23 +186,23 @@ const BlogPost = () => {
       {/* CTA Section */}
       <section className="py-16 bg-bsts-lightblue">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center animation-on-scroll">
             <h2 className="text-3xl font-bold text-bsts-navy mb-4">Need Help with Tax Planning?</h2>
             <p className="text-gray-600 mb-8">
               Our team of tax experts can help your business develop and implement effective tax planning strategies tailored to your specific needs.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button asChild size="lg" className="bg-bsts-burgundy hover:bg-bsts-burgundy/90">
+              <Button asChild size="lg" className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 transition-transform duration-300 hover:scale-105">
                 <Link to="/contact">Contact Us</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-bsts-navy text-bsts-navy hover:bg-bsts-navy/10">
+              <Button asChild size="lg" variant="outline" className="border-bsts-navy text-bsts-navy hover:bg-bsts-navy/10 transition-transform duration-300 hover:scale-105">
                 <Link to="/services/taxation">Learn About Our Tax Services</Link>
               </Button>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </PageLayout>
   );
 };
 

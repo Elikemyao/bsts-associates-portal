@@ -7,27 +7,24 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, Briefcase, Shield, Users } from 'lucide-react';
+import PageLayout from '@/components/PageLayout';
+import PageHeader from '@/components/PageHeader';
 
 const About = () => {
   return (
-    <div className="animate-fade-in">
+    <PageLayout>
       {/* Header Section */}
-      <section className="bg-bsts-navy text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="hero-title mb-6">About BSTS & Associates</h1>
-            <p className="text-xl text-gray-200">
-              We Help You Capitalize on Opportunities, Plan Better And Grow Faster.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader 
+        title="About BSTS & Associates"
+        subtitle="We Help You Capitalize on Opportunities, Plan Better And Grow Faster."
+        backgroundImage="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80"
+      />
 
       {/* Introduction Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animation-on-scroll">
               <SectionHeading 
                 title="About Us" 
                 subtitle="Choosing the right accountant to work with can be daunting but is a decision that is incredibly important for your business."
@@ -36,17 +33,17 @@ const About = () => {
                 At BSTS & Associates, as locally based accountants, we pride ourselves on our professional, friendly and timely approach. We can help you save money, minimize your tax bill and give you back time to focus on the important job of growing your business.
               </p>
               <div className="mt-8">
-                <Button asChild className="bg-bsts-burgundy hover:bg-bsts-burgundy/90">
+                <Button asChild className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 transition-all duration-300 hover:scale-105">
                   <Link to="/contact">Contact Us Today</Link>
                 </Button>
               </div>
             </div>
-            <div className="rounded-lg overflow-hidden shadow-xl">
+            <div className="rounded-lg overflow-hidden shadow-xl animation-on-scroll transform transition-all hover:scale-[1.02] duration-500">
               <AspectRatio ratio={4/3}>
                 <img 
                   src="/lovable-uploads/66e7bfb8-cbca-4da1-8857-6e685d8d2adc.png" 
                   alt="Professional BSTS Consultant Team" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </AspectRatio>
             </div>
@@ -65,7 +62,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
             {/* First Promise */}
-            <Card className="border-t-4 border-t-bsts-burgundy shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="border-t-4 border-t-bsts-burgundy shadow-lg hover:shadow-xl transition-all duration-300 animation-on-scroll">
               <CardContent className="pt-8">
                 <div className="flex items-start gap-4">
                   <div className="bg-bsts-burgundy/10 p-3 rounded-full">
@@ -95,7 +92,7 @@ const About = () => {
             </Card>
             
             {/* Second Promise */}
-            <Card className="border-t-4 border-t-bsts-navy shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="border-t-4 border-t-bsts-navy shadow-lg hover:shadow-xl transition-all duration-300 animation-on-scroll" style={{animationDelay: '200ms'}}>
               <CardContent className="pt-8">
                 <div className="flex items-start gap-4">
                   <div className="bg-bsts-navy/10 p-3 rounded-full">
@@ -124,7 +121,7 @@ const About = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1 animation-on-scroll">
               <SectionHeading 
                 title="Who We Are" 
                 subtitle="ABOUT BSTS & ASSOCIATES (CHARTERED ACCOUNTANTS)"
@@ -142,12 +139,12 @@ const About = () => {
                 We always show flexibility and apply individual approach to each client, optimizing the efficiency of their accounting, finances, and tax obligations according to the nature of their business.
               </p>
             </div>
-            <div className="order-1 lg:order-2 rounded-lg overflow-hidden shadow-xl">
+            <div className="order-1 lg:order-2 rounded-lg overflow-hidden shadow-xl animation-on-scroll transform transition-all hover:scale-[1.02] duration-500">
               <AspectRatio ratio={4/3}>
                 <img 
                   src="/lovable-uploads/7795640d-dd2a-4fb4-928d-35b22673ec6a.png" 
                   alt="BSTS Professional Team" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </AspectRatio>
             </div>
@@ -166,7 +163,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
             {/* Mission */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow h-full">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full animation-on-scroll">
               <CardContent className="p-8">
                 <div className="flex flex-col h-full">
                   <div className="bg-bsts-navy text-white p-4 rounded-md inline-block mb-6 self-start">
@@ -183,7 +180,7 @@ const About = () => {
             </Card>
             
             {/* Vision */}
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow h-full">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-full animation-on-scroll" style={{animationDelay: '200ms'}}>
               <CardContent className="p-8">
                 <div className="flex flex-col h-full">
                   <div className="bg-bsts-burgundy text-white p-4 rounded-md inline-block mb-6 self-start">
@@ -206,19 +203,19 @@ const About = () => {
       <section className="py-16 md:py-24 bg-bsts-navy text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
+            <div className="animation-on-scroll transform transition-all hover:scale-105 duration-300">
               <div className="text-5xl font-bold text-bsts-gold mb-2">15+</div>
               <p className="text-xl text-gray-300">Years in Business</p>
             </div>
-            <div>
+            <div className="animation-on-scroll transform transition-all hover:scale-105 duration-300" style={{animationDelay: '100ms'}}>
               <div className="text-5xl font-bold text-bsts-gold mb-2">500+</div>
               <p className="text-xl text-gray-300">Happy Clients</p>
             </div>
-            <div>
+            <div className="animation-on-scroll transform transition-all hover:scale-105 duration-300" style={{animationDelay: '200ms'}}>
               <div className="text-5xl font-bold text-bsts-gold mb-2">30+</div>
               <p className="text-xl text-gray-300">Industry Experts</p>
             </div>
-            <div>
+            <div className="animation-on-scroll transform transition-all hover:scale-105 duration-300" style={{animationDelay: '300ms'}}>
               <div className="text-5xl font-bold text-bsts-gold mb-2">10+</div>
               <p className="text-xl text-gray-300">Industry Awards</p>
             </div>
@@ -235,7 +232,7 @@ const About = () => {
         secondaryButtonText="View Our Services"
         secondaryButtonLink="/services"
       />
-    </div>
+    </PageLayout>
   );
 };
 

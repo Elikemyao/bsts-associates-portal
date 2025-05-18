@@ -9,6 +9,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { useIsMobile } from '@/hooks/use-mobile';
+import PageLayout from '@/components/PageLayout';
+import PageHeader from '@/components/PageHeader';
 
 const Careers = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -67,32 +69,19 @@ const Careers = () => {
   ];
 
   return (
-    <div className="animate-fade-in">
+    <PageLayout>
       {/* Header Section - Full width banner with gradient overlay and responsive text */}
-      <section className="relative bg-bsts-navy text-white py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-bsts-navy/95 to-bsts-burgundy/80 z-10"></div>
-        <div className="absolute inset-0 overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1600&q=80" 
-            alt="Team working together" 
-            className="w-full h-full object-cover object-center animate-zoom-out opacity-30"
-          />
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-          <div className="max-w-3xl">
-            <h1 className="hero-title mb-6">Careers at BSTS & Associates</h1>
-            <p className="text-xl text-gray-200 leading-relaxed">
-              Join our team of professionals and build a rewarding career in a dynamic and supportive environment.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader 
+        title="Careers at BSTS & Associates"
+        subtitle="Join our team of professionals and build a rewarding career in a dynamic and supportive environment."
+        backgroundImage="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1600&q=80"
+      />
 
       {/* About Working at BSTS - Staggered layout with card effect */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className={`${isMobile ? 'order-2' : 'order-1'}`}>
+            <div className={`${isMobile ? 'order-2' : 'order-1'} animation-on-scroll`}>
               <SectionHeading 
                 title="Why Work With Us" 
                 subtitle="At BSTS & Associates, we're committed to creating a positive and rewarding work environment where you can grow both personally and professionally."
@@ -104,7 +93,7 @@ const Careers = () => {
               
               <div className="space-y-4 mt-8">
                 {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3 fade-in-delay-1">
+                  <div key={index} className="flex items-start gap-3 animation-on-scroll" style={{animationDelay: `${index * 100}ms`}}>
                     <CheckCircle className="w-6 h-6 text-bsts-burgundy flex-shrink-0 mt-0.5" />
                     <p className="text-gray-600">{benefit}</p>
                   </div>
@@ -112,11 +101,11 @@ const Careers = () => {
               </div>
             </div>
             
-            <div className={`rounded-lg overflow-hidden shadow-xl transform transition-all hover:scale-[1.02] duration-300 ${isMobile ? 'order-1' : 'order-2'}`}>
+            <div className={`rounded-lg overflow-hidden shadow-xl transform transition-all hover:scale-[1.02] duration-300 animation-on-scroll ${isMobile ? 'order-1' : 'order-2'}`}>
               <img 
                 src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&h=600&q=80" 
                 alt="Working at BSTS & Associates" 
-                className="w-full h-auto"
+                className="w-full h-auto transition-transform duration-700 hover:scale-105"
               />
             </div>
           </div>
@@ -134,18 +123,20 @@ const Careers = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {careerPaths.map((path, index) => (
-              <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 group">
-                <CardContent className="p-8 flex flex-col h-full">
-                  <h3 className="text-2xl font-semibold mb-4 text-bsts-navy">{path.title}</h3>
-                  <p className="text-gray-600 mb-6 flex-grow">{path.description}</p>
-                  <Button 
-                    className="w-full bg-bsts-navy hover:bg-bsts-navy/90 group-hover:translate-y-[-2px] transition-transform"
-                    onClick={() => openApplicationForm(path.position)}
-                  >
-                    Apply Now <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </CardContent>
-              </Card>
+              <div key={index} className="animation-on-scroll" style={{animationDelay: `${index * 150}ms`}}>
+                <Card className="bg-white hover:shadow-lg transition-all duration-300 group h-full">
+                  <CardContent className="p-8 flex flex-col h-full">
+                    <h3 className="text-2xl font-semibold mb-4 text-bsts-navy">{path.title}</h3>
+                    <p className="text-gray-600 mb-6 flex-grow">{path.description}</p>
+                    <Button 
+                      className="w-full bg-bsts-navy hover:bg-bsts-navy/90 group-hover:translate-y-[-2px] transition-transform"
+                      onClick={() => openApplicationForm(path.position)}
+                    >
+                      Apply Now <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -162,27 +153,29 @@ const Careers = () => {
           
           <div className="space-y-6 mt-12">
             {jobOpenings.map((job, index) => (
-              <Card key={index} className="border border-gray-200 rounded-lg hover:shadow-md transition-shadow overflow-hidden group">
-                <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
-                    <div>
-                      <h3 className="text-xl font-semibold text-bsts-navy mb-2">{job.title}</h3>
-                      <p className="text-bsts-burgundy mb-4">{job.type}</p>
-                      <p className="text-gray-600 mb-4 md:mb-0">{job.description}</p>
+              <div key={index} className="animation-on-scroll" style={{animationDelay: `${index * 150}ms`}}>
+                <Card className="border border-gray-200 rounded-lg hover:shadow-md transition-shadow overflow-hidden group">
+                  <CardContent className="p-6">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+                      <div>
+                        <h3 className="text-xl font-semibold text-bsts-navy mb-2">{job.title}</h3>
+                        <p className="text-bsts-burgundy mb-4">{job.type}</p>
+                        <p className="text-gray-600 mb-4 md:mb-0">{job.description}</p>
+                      </div>
+                      <Button asChild className="bg-bsts-navy hover:bg-bsts-navy/90 self-start md:self-center whitespace-nowrap group-hover:translate-y-[-2px] transition-transform">
+                        <Link to="/careers/job-vacancy" className="flex items-center">
+                          Apply Now
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      </Button>
                     </div>
-                    <Button asChild className="bg-bsts-navy hover:bg-bsts-navy/90 self-start md:self-center whitespace-nowrap group-hover:translate-y-[-2px] transition-transform">
-                      <Link to="/careers/job-vacancy" className="flex items-center">
-                        Apply Now
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 animation-on-scroll">
             <Button asChild size="lg" className="bg-bsts-burgundy hover:bg-bsts-burgundy/90 transform transition-transform hover:scale-105">
               <Link to="/careers/job-vacancy" className="flex items-center">
                 View All Openings
@@ -212,7 +205,7 @@ const Careers = () => {
           <JobApplicationForm position={selectedPosition} />
         </DialogContent>
       </Dialog>
-    </div>
+    </PageLayout>
   );
 };
 

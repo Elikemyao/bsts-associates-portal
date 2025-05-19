@@ -7,6 +7,7 @@ export interface TestimonialCardProps {
   quote: string;
   author: string;
   role: string;
+  company?: string;
   avatarSrc?: string;
 }
 
@@ -14,6 +15,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   quote, 
   author, 
   role, 
+  company,
   avatarSrc 
 }) => {
   // Get author initials for avatar fallback
@@ -46,7 +48,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             </Avatar>
             <div className="ml-4">
               <p className="text-sm font-medium text-bsts-navy">{author}</p>
-              <p className="text-xs text-gray-500">{role}</p>
+              <p className="text-xs text-gray-500">{role}{company && <span>, {company}</span>}</p>
             </div>
           </div>
         </div>

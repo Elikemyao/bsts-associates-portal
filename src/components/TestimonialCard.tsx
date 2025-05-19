@@ -1,65 +1,56 @@
 
-import React, { useEffect, useRef, useState } from 'react';
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import React from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
 
-interface TestimonialCardProps {
+export interface TestimonialCardProps {
   quote: string;
   author: string;
-  role?: string;
-  company?: string;
-  className?: string;
-  animationDelay?: number;
+  role: string;
+  avatarSrc?: string;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ 
   quote, 
   author, 
   role, 
-  company,
-  className = "",
-  animationDelay = 0
+  avatarSrc 
 }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-    
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
-  }, []);
-  
+  // Get author initials for avatar fallback
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map(part => part[0])
+      .join('')
+      .toUpperCase();
+  };
+
   return (
-    <Card 
-      ref={cardRef}
-      className={`h-full transform transition-all duration-500 hover:shadow-lg hover:-translate-y-2 ${className} ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}
-      style={{ animationDelay: `${animationDelay}ms`, animationFillMode: 'forwards' }}
-    >
-      <CardContent className="pt-6">
-        <div className="text-3xl text-bsts-gold mb-4 transition-all duration-300 transform hover:scale-110">"</div>
-        <p className="italic text-gray-700 mb-4">{quote}</p>
+    <Card className="border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-md hover-lift">
+      <CardContent className="p-6">
+        <div className="space-y-4">
+          <div className="relative">
+            <div className="text-4xl text-bsts-burgundy/20 absolute top-0 left-0">"</div>
+            <p className="text-gray-600 italic pt-4 pb-2 pl-4 relative z-10">
+              {quote}
+            </p>
+            <div className="text-4xl text-bsts-burgundy/20 absolute bottom-0 right-4">"</div>
+          </div>
+          
+          <div className="flex items-center pt-2">
+            <Avatar className="h-10 w-10 border-2 border-bsts-navy/10">
+              <AvatarImage src={avatarSrc} />
+              <AvatarFallback className="bg-bsts-navy/10 text-bsts-navy">
+                {getInitials(author)}
+              </AvatarFallback>
+            </Avatar>
+            <div className="ml-4">
+              <p className="text-sm font-medium text-bsts-navy">{author}</p>
+              <p className="text-xs text-gray-500">{role}</p>
+            </div>
+          </div>
+        </div>
       </CardContent>
-      <CardFooter className="flex flex-col items-start">
-        <p className="font-semibold text-bsts-navy">{author}</p>
-        {(role || company) && (
-          <p className="text-gray-600 text-sm">{role}{role && company && ', '}{company}</p>
-        )}
-      </CardFooter>
     </Card>
   );
 };
